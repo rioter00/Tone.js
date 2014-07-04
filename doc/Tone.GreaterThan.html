@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Tone.js Class: Switch</title>
+	<title>Tone.js Class: GreaterThan</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -33,6 +33,10 @@
 						</li>
 						
 						<li>
+							<a href="Tone.Abs.html">Abs</a>
+						</li>
+						
+						<li>
 							<a href="Tone.Add.html">Add</a>
 						</li>
 						
@@ -57,7 +61,11 @@
 						</li>
 						
 						<li>
-							<a href="Tone.EqualsZero.html">EqualsZero</a>
+							<a href="Tone.Equal.html">Equal</a>
+						</li>
+						
+						<li>
+							<a href="Tone.EqualZero.html">EqualZero</a>
 						</li>
 						
 						<li>
@@ -70,6 +78,18 @@
 						
 						<li>
 							<a href="Tone.Follower.html">Follower</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Gate.html">Gate</a>
+						</li>
+						
+						<li>
+							<a href="Tone.GreaterThan.html">GreaterThan</a>
+						</li>
+						
+						<li>
+							<a href="Tone.LessThan.html">LessThan</a>
 						</li>
 						
 						<li>
@@ -137,10 +157,6 @@
 						</li>
 						
 						<li>
-							<a href="Tone.Switch.html">Switch</a>
-						</li>
-						
-						<li>
 							<a href="Tone.Threshold.html">Threshold</a>
 						</li>
 						
@@ -165,14 +181,14 @@
 					
 
 
-	<h1 class="page-title">Class: Switch</h1>
+	<h1 class="page-title">Class: GreaterThan</h1>
 <section>
 
 <header>
     <h2>
         <span class="ancestors"><a href="Tone.html">Tone</a>.</span>
     
-    Switch
+    GreaterThan
     </h2>
     
 </header>
@@ -184,7 +200,7 @@
     
         
 <dt>
-    <h4 class="name" id="Switch"><span class="type-signature"></span>new Switch<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="GreaterThan"><span class="type-signature"></span>new GreaterThan<span class="signature">(<span class="optional">value</span>)</span><span class="type-signature"></span></h4>
     
     
 </dt>
@@ -192,9 +208,7 @@
     
     
     <div class="description">
-        <p>When the gate is set to 0, the input signal does not pass through to the output. 
- If the gate is set to 1, the input signal passes through</p>
-<p> the switch will initially be closed.</p>
+        <p>Output 1 if the signal is greater than the value, otherwise outputs 0</p>
     </div>
     
 
@@ -202,6 +216,75 @@
     
     
     
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+		<th>Argument</th>
+		
+
+		
+		<th>Default</th>
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last"><p>the value to compare to the incoming signal</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
     
     
     
@@ -227,7 +310,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-3999">line 3999</a>
+        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-4282">line 4282</a>
     </li></ul></dd>
     
 
@@ -277,16 +360,14 @@
         <dl>
             
 <dt>
-    <h4 class="name" id="gate"><span class="type-signature"></span>gate<span class="type-signature"> :<a href="Tone.Signal.html">Tone.Signal</a></span></h4>
+    <h4 class="name" id="input"><span class="type-signature"></span>input<span class="type-signature"> :<a href="Tone.Add.html">Tone.Add</a></span></h4>
     
     
 </dt>
 <dd>
     
     <div class="description">
-        <p>the control signal for the switch
- when this value is 0, the input signal will not pass through,
- when it is high (1), the input signal will pass through.</p>
+        <p>alias for the adder</p>
     </div>
     
     
@@ -295,7 +376,7 @@
         <ul>
             <li>
                 
-<span class="param-type"><a href="Tone.Signal.html">Tone.Signal</a></span>
+<span class="param-type"><a href="Tone.Add.html">Tone.Add</a></span>
 
 
             </li>
@@ -325,7 +406,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-4009">line 4009</a>
+        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-4307">line 4307</a>
     </li></ul></dd>
     
 
@@ -343,14 +424,14 @@
         
             
 <dt>
-    <h4 class="name" id="input"><span class="type-signature"></span>input<span class="type-signature"> :GainNode</span></h4>
+    <h4 class="name" id="output"><span class="type-signature"></span>output<span class="type-signature"> :<a href="Tone.Threshold.html">Tone.Threshold</a></span></h4>
     
     
 </dt>
 <dd>
     
     <div class="description">
-        <p>default input of the ToneNode</p>
+        <p>alias for the thresh</p>
     </div>
     
     
@@ -359,7 +440,7 @@
         <ul>
             <li>
                 
-<span class="param-type">GainNode</span>
+<span class="param-type"><a href="Tone.Threshold.html">Tone.Threshold</a></span>
 
 
             </li>
@@ -375,11 +456,6 @@
     
 
     
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="dummy"><li>
-        <a href="Tone.html#input">Tone#input</a>
-    </li></dd>
-    
 
     
 
@@ -394,76 +470,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-111">line 111</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="output"><span class="type-signature"></span>output<span class="type-signature"> :GainNode</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        <p>default output of the ToneNode</p>
-    </div>
-    
-    
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type">GainNode</span>
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="dummy"><li>
-        <a href="Tone.html#output">Tone#output</a>
-    </li></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-117">line 117</a>
+        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-4313">line 4313</a>
     </li></ul></dd>
     
 
@@ -594,124 +601,6 @@
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-168">line 168</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="close"><span class="type-signature"></span>close<span class="signature">(time)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>close the switch at a specific time</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>time</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Tone.Time</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>the time when the switch will be open</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-    
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-4039">line 4039</a>
     </li></ul></dd>
     
 
@@ -1257,7 +1146,7 @@
     
     
     <div class="description">
-        <p>clean up</p>
+        <p>dispose method</p>
     </div>
     
 
@@ -1290,7 +1179,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-4046">line 4046</a>
+        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-4352">line 4352</a>
     </li></ul></dd>
     
 
@@ -2803,7 +2692,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-2115">line 2115</a>
+        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-2460">line 2460</a>
     </li></ul></dd>
     
 
@@ -3085,124 +2974,6 @@
         
             
 <dt>
-    <h4 class="name" id="open"><span class="type-signature"></span>open<span class="signature">(time)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>open the switch at a specific time</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>time</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Tone.Time</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>the time when the switch will be open</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-    
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-4030">line 4030</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
     <h4 class="name" id="receive"><span class="type-signature"></span>receive<span class="signature">(channelName)</span><span class="type-signature"></span></h4>
     
     
@@ -3298,7 +3069,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-3254">line 3254</a>
+        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-3599">line 3599</a>
     </li></ul></dd>
     
 
@@ -3728,7 +3499,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-3239">line 3239</a>
+        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-3584">line 3584</a>
     </li></ul></dd>
     
 
@@ -3768,6 +3539,124 @@
 
 
         
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="setValue"><span class="type-signature"></span>setValue<span class="signature">(value)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>set the value to compare to</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+    
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-4345">line 4345</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
     
     
 </dd>
@@ -3870,7 +3759,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-2202">line 2202</a>
+        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-2547">line 2547</a>
     </li></ul></dd>
     
 
@@ -4472,7 +4361,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-2224">line 2224</a>
+        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-2569">line 2569</a>
     </li></ul></dd>
     
 
@@ -4541,7 +4430,7 @@
 					<br />
 					
 		<span class="jsdoc-message">
-		Documentation generated on Wed Jul 02 2014 17:13:29 GMT-0400 (EDT).
+		Documentation generated on Thu Jul 03 2014 23:49:54 GMT-0400 (EDT).
 		</span>
 				</footer>
 			</div>

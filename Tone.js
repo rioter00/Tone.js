@@ -851,16 +851,19 @@ define('Tone/signal/Add',["Tone/core/Tone", "Tone/signal/Signal"], function(Tone
 	 *  @param {number} value
 	 */
 	Tone.Add = function(value){
-		Tone.call(this);
-
 		/**
 		 *  @private
 		 *  @type {Tone}
 		 */
 		this._value = new Tone.Signal(value);
 
+		/**
+		 *  @type {GainNode}
+		 */
+		this.input = this.output = this.context.createGain();
+
 		//connections
-		this.chain(this._value, this.input, this.output);
+		this._value.connect(this.output);
 	};
 
 	Tone.extend(Tone.Add);
@@ -879,10 +882,8 @@ define('Tone/signal/Add',["Tone/core/Tone", "Tone/signal/Signal"], function(Tone
 	 */
 	Tone.Add.prototype.dispose = function(){
 		this._value.dispose();
-		this.input.disconnect();
 		this.output.disconnect();
 		this._value = null;
-		this.input = null;
 		this.output = null;
 	}; 
 
@@ -1313,21 +1314,289 @@ define('Tone/component/Envelope',["Tone/core/Tone", "Tone/signal/Signal"], funct
 	return Tone.Envelope;
 });
 
-define('Tone/component/Follower',["Tone/core/Tone", "Tone/signal/Signal", "Tone/signal/Scale"], function(Tone){
+define('Tone/signal/Threshold',["Tone/core/Tone"], function(Tone){
+
+	/**
+	 *  Threshold an incoming signal. the signal is assumed to be in the normal range (-1 to 1)
+	 *
+	 *  Sets a threshold value such that signal above the value will equal 1, 
+	 *  and below will equal 0.
+	 *  
+	 *  @constructor
+	 *  @param {number=} [thresh=0] threshold value above which the output will equal 1 
+	 *                          and below which the output will equal 0
+	 *  @extends {Tone}
+	 */
+	Tone.Threshold = function(thresh){
+		
+		/**
+		 *  @type {WaveShaperNode}
+		 *  @private
+		 */
+		this._thresh = this.context.createWaveShaper();
+
+		/**
+		 *  make doubly sure that the input is thresholded by 
+		 *  passing it through two waveshapers
+		 *  
+		 *  @type {WaveShaperNode}
+		 *  @private
+		 */
+		this._doubleThresh = this.context.createWaveShaper();
+
+		/**
+		 *  @type {WaveShaperNode}
+		 */
+		this.input = this._thresh;
+		this.output = this._doubleThresh;
+
+		this._thresh.connect(this._doubleThresh);
+
+		this._setThresh(this._thresh, this.defaultArg(thresh, 0));
+		this._setThresh(this._doubleThresh, 1);
+	};
+
+	Tone.extend(Tone.Threshold);
+
+	/**
+	 *  @param {number} thresh 
+	 *  @private
+	 */
+	Tone.Threshold.prototype._setThresh = function(component, thresh){
+		var curveLength = 1024;
+		var curve = new Float32Array(curveLength);
+		for (var i = 0; i < curveLength; i++){
+			var normalized = (i / (curveLength - 1)) * 2 - 1;
+			var val;
+			if (normalized < thresh){
+				val = 0;
+			} else {
+				val = 1;
+			}
+			curve[i] = val;
+		}
+		component.curve = curve;
+	};
+
+	/**
+	 *  sets the threshold value
+	 *  
+	 *  @param {number} thresh number must be between -1 and 1
+	 */
+	Tone.Threshold.prototype.setThreshold = function(thresh){
+		this._setThresh(this._thresh, thresh);
+	};
+
+	/**
+	 *  dispose method
+	 */
+	Tone.Threshold.prototype.dispose = function(){
+		this._thresh.disconnect();
+		this._doubleThresh.disconnect();
+		this._thresh = null;
+		this._doubleThresh = null;
+	};
+
+	return Tone.Threshold;
+});
+define('Tone/signal/Negate',["Tone/core/Tone", "Tone/signal/Multiply"], function(Tone){
+
+	/**
+	 *  Negate the incoming signal. i.e. an input signal of 10 will output -10
+	 *
+	 *  @constructor
+	 *  @extends {Tone}
+	 */
+	Tone.Negate = function(value){
+		/**
+		 *  negation is done by multiplying by -1
+		 *  @type {Tone.Multiply}
+		 *  @private
+		 */
+		this._multiply = new Tone.Multiply(-1);
+
+		/**
+		 *  the input and output
+		 */
+		this.input = this.output = this._multiply;
+	};
+
+	Tone.extend(Tone.Negate);
+
+	/**
+	 *  clean up
+	 */
+	Tone.Negate.prototype.dispose = function(){
+		this.input.disconnect();
+		this.input = null;
+	}; 
+
+	return Tone.Negate;
+});
+define('Tone/signal/EqualZero',["Tone/core/Tone", "Tone/signal/Threshold"], function(Tone){
+
+	/**
+	 *  Output 1 if the signal is equal to 0, otherwise outputs 0
+	 *  
+	 *  @constructor
+	 *  @extends {Tone}
+	 */
+	Tone.EqualZero = function(){
+		/**
+		 *  @type {WaveShaperNode}
+		 *  @private
+		 */
+		this._equals = this.context.createWaveShaper();
+
+		/**
+		 *  @type {WaveShaperNode}
+		 *  @private
+		 */
+		this._thresh = new Tone.Threshold(1);
+
+		/**
+		 *  @type {WaveShaperNode}
+		 */
+		this.input = this._equals;
+
+		this._equals.connect(this._thresh);
+
+		this.output = this._thresh;
+
+
+		this._setEquals();
+	};
+
+	Tone.extend(Tone.EqualZero);
+
+	/**
+	 *  @private
+	 */
+	Tone.EqualZero.prototype._setEquals = function(){
+		var curveLength = 1024;
+		var curve = new Float32Array(curveLength);
+		for (var i = 0; i < curveLength; i++){
+			var normalized = (i / (curveLength)) * 2 - 1;
+			if (normalized === 0){
+				curve[i] = 1;
+			} else {
+				curve[i] = 0;
+			}
+		}
+		this._equals.curve = curve;
+	};
+
+	/**
+	 *  dispose method
+	 */
+	Tone.EqualZero.prototype.dispose = function(){
+		this._equals.disconnect();
+		this._thresh.dispose();
+		this._equals = null;
+		this._thresh = null;
+	};
+
+	return Tone.EqualZero;
+});
+define('Tone/signal/Abs',["Tone/core/Tone", "Tone/signal/Threshold", "Tone/signal/Negate", "Tone/signal/EqualZero"], function(Tone){
+
+	/**
+	 *  return the absolute value of an incoming signal
+	 *
+	 *  @constructor
+	 *  @extends {Tone}
+	 *  @param {number} value
+	 */
+	Tone.Abs = function(value){
+		Tone.call(this);
+
+		/**
+		 *  @type {Tone.Threshold}
+		 *  @private
+		 */
+		this._thresh = new Tone.Threshold(0);
+		
+		/**
+		 *  @type {Tone.Negate}
+		 *  @private
+		 */
+		this._negate = new Tone.Negate();
+
+		/**
+		 *  @type {Tone.EqualZero}
+		 *  @private
+		 */
+		this._not = new Tone.EqualZero();
+
+		/**
+		 *  @type {GainNode}
+		 *  @private
+		 */
+		this._positive = this.context.createGain();
+
+		/**
+		 *  @type {GainNode}
+		 *  @private
+		 */
+		this._negative = this.context.createGain();
+
+		this.input.connect(this._thresh);
+		//two routes, one positive, one negative
+		this.chain(this.input, this._positive, this.output);
+		this.chain(this.input, this._negate, this._negative, this.output);
+		//the switching logic
+		this._thresh.connect(this._positive.gain);
+		this._positive.gain.value = 0;
+		this.chain(this._thresh, this._not, this._negative.gain);
+		this._negative.gain.value = 0;
+	};
+
+	Tone.extend(Tone.Abs);
+
+	/**
+	 *  dispose method
+	 */
+	Tone.Abs.prototype.dispose = function(){
+		this._thresh.dispose();
+		this._negate.dispose();
+		this._not.dispose();
+		this._positive.disconnect();
+		this._negative.disconnect();
+		this.input.disconnect();
+		this.output.disconnect();
+		this._thresh = null;
+		this._negate = null;
+		this._not = null;
+		this._positive = null;
+		this._negative = null;
+		this.input = null;
+		this.output = null;
+	}; 
+
+	return Tone.Abs;
+});
+define('Tone/component/Follower',["Tone/core/Tone", "Tone/signal/Abs", "Tone/signal/Negate", "Tone/signal/Threshold"], function(Tone){
 
 	/**
 	 *  Follow the envelope of the incoming signal
 	 *  @constructor
 	 *  @extends {Tone}
+	 *  @param {Tone.Time=} [attackTime = 0.01] 
+	 *  @param {Tone.Time=} [releaseTime = 0.1] 
 	 */
 	Tone.Follower = function(attackTime, releaseTime){
 
+		Tone.call(this);
+
+		//default values
+		attackTime = this.defaultArg(attackTime, 0.01);
+		releaseTime = this.defaultArg(releaseTime, 0.1);
+
 		/**
-		 *  scale the incoming signal to 0-1
-		 *  @type {Tone.Signal}
+		 *  @type {Tone.Abs}
 		 *  @private
 		 */
-		this._scaler = new Tone.Scale(0, 1);
+		this._abs = new Tone.Abs();
 
 		/**
 		 *  the lowpass filter
@@ -1336,15 +1605,91 @@ define('Tone/component/Follower',["Tone/core/Tone", "Tone/signal/Signal", "Tone/
 		 */
 		this._filter = this.context.createBiquadFilter();
 		this._filter.type = "lowpass";
+		this._filter.frequency.value = 0;
 
 		/**
 		 *  @type {WaveShaperNode}
 		 *  @private
 		 */
-		this._gate = this.context.createWaveShaper();
+		this._frequencyValues = this.context.createWaveShaper();
+		
+		/**
+		 *  @type {Tone.Negate}
+		 *  @private
+		 */
+		this._negate = new Tone.Negate();
+
+		/**
+		 *  @type {GainNode}
+		 *  @private
+		 */
+		this._difference = this.context.createGain();
+
+		/**
+		 *  @type {GainNode}
+		 *  @private
+		 */
+		this._thresh = new Tone.Threshold(0);
+
+		//the smoothed signal
+		this.chain(this.input, this._abs, this._filter, this.output);
+		//subtract the smoothed signal from the input signal
+		this.input.connect(this._negate);
+		this.output.connect(this._difference);
+		this._negate.connect(this._difference);
+		//threshold the difference and use the thresh to set the frequency
+		this.chain(this._difference, this._thresh, this._frequencyValues, this._filter.frequency);
+		//set the attack and release values in the table
+		this._setAttackRelease(this.secondsToFrequency(attackTime), this.secondsToFrequency(releaseTime));
 	};
 
 	Tone.extend(Tone.Follower);
+
+	/**
+	 *  sets the attack and release times in the wave shaper
+	 *  @param   {number} attack  
+	 *  @param   {number} release 
+	 *  @private
+	 */
+	Tone.Follower.prototype._setAttackRelease = function(attack, release){
+		var curveLength = 1024;
+		var curve = new Float32Array(curveLength);
+		for (var i = 0; i < curveLength; i++){
+			var normalized = (i / (curveLength - 1)) * 2 - 1;
+			var val;
+			if (normalized < 0.5){
+				val = attack;
+			} else {
+				val = release;
+			}
+			curve[i] = val;
+		}
+		this._frequencyValues.curve = curve;
+	};
+
+	/**
+	 *  dispose
+	 */
+	Tone.Follower.prototype.dispose = function(){
+		this._filter.disconnect();
+		this.input.disconnect();
+		this._frequencyValues.disconnect();
+		this.output.disconnect();
+		this._abs.dispose();
+		this._negate.dispose();
+		this._difference.dispose();
+		this._thresh.dispose();
+		this._filter = null;
+		this.input = null;
+		this._frequencyValues = null;
+		this.output = null;
+		this._abs = null;
+		this._negate = null;
+		this._difference = null;
+		this._thresh = null;
+	};
+
+	return Tone.Follower;
 });
 define('Tone/core/Transport',["Tone/core/Tone", "Tone/core/Master", "Tone/signal/Signal"], 
 function(Tone){
@@ -3796,196 +4141,65 @@ define('Tone/effect/PingPongDelay',["Tone/core/Tone", "Tone/effect/FeedbackDelay
 
 	return Tone.PingPongDelay;
 });
-define('Tone/signal/Threshold',["Tone/core/Tone"], function(Tone){
+define('Tone/signal/Equal',["Tone/core/Tone", "Tone/signal/EqualZero", "Tone/signal/Add"], function(Tone){
 
 	/**
-	 *  Threshold an incoming signal between -1 to 1
-	 *
-	 *  Set the threshold value such that signal above the value will equal 1, 
-	 *  and below will equal 0.
-	 *  
-	 *  Values below 0.5 will return 0 and values above 0.5 will return 1
+	 *  Output 1 if the signal is equal to the value, otherwise outputs 0
 	 *  
 	 *  @constructor
-	 *  @param {number=} thresh threshold value above which the output will equal 1 
-	 *                          and below which the output will equal 0
-	 *                          @default 0
 	 *  @extends {Tone}
+	 *  @param {number} value the number to compare the incoming signal to
 	 */
-	Tone.Threshold = function(thresh){
-		
-		/**
-		 *  @type {WaveShaperNode}
-		 *  @private
-		 */
-		this._thresh = this.context.createWaveShaper();
+	Tone.Equal = function(value){
 
 		/**
-		 *  make doubly sure that the input is thresholded by 
-		 *  passing it through two waveshapers
+		 *  subtract the value from the incoming signal
 		 *  
-		 *  @type {WaveShaperNode}
+		 *  @type {Tone.Add}
 		 *  @private
 		 */
-		this._doubleThresh = this.context.createWaveShaper();
+		this._adder = new Tone.Add(-value);
+		/**
+		 *  @type {Tone.EqualZero}
+		 *  @private
+		 */
+		this._equals = new Tone.EqualZero();
 
 		/**
-		 *  @type {WaveShaperNode}
+		 *  @type {Tone.Add}
 		 */
-		this.input = this._thresh;
-		this.output = this._doubleThresh;
+		this.input = this._adder;
 
-		this._thresh.connect(this._doubleThresh);
+		/**
+		 *  @type {Tone.EqualZero}
+		 */
+		this.output = this._equals;
 
-		this._setThresh(this._thresh, this.defaultArg(thresh, 0));
-		this._setThresh(this._doubleThresh, 1);
+		this._adder.connect(this._equals);
 	};
 
-	Tone.extend(Tone.Threshold);
+	Tone.extend(Tone.Equal);
 
 	/**
-	 *  @param {number} thresh 
-	 *  @private
+	 * 	@param {number} value set the comparison value
 	 */
-	Tone.Threshold.prototype._setThresh = function(component, thresh){
-		var curveLength = 1024;
-		var curve = new Float32Array(curveLength);
-		for (var i = 0; i < curveLength; i++){
-			var normalized = (i / (curveLength - 1)) * 2 - 1;
-			var val;
-			if (normalized < thresh){
-				val = 0;
-			} else {
-				val = 1;
-			}
-			curve[i] = val;
-		}
-		component.curve = curve;
-	};
-
-	/**
-	 *  sets the threshold value
-	 *  
-	 *  @param {number} thresh number must be between -1 and 1
-	 */
-	Tone.Threshold.prototype.setThreshold = function(thresh){
-		this._setThresh(this._thresh, thresh);
+	Tone.Equal.prototype.setValue = function(value){
+		this._adder.setValue(-value);
 	};
 
 	/**
 	 *  dispose method
 	 */
-	Tone.Threshold.prototype.dispose = function(){
-		this._thresh.disconnect();
-		this._doubleThresh.disconnect();
-		this._thresh = null;
-		this._doubleThresh = null;
-	};
-
-	return Tone.Threshold;
-});
-define('Tone/signal/EqualsZero',["Tone/core/Tone", "Tone/signal/Threshold"], function(Tone){
-
-	/**
-	 *  Output 1 if the signal is equal to 0, otherwise outputs 0
-	 *  
-	 *  @constructor
-	 *  @extends {Tone}
-	 */
-	Tone.EqualsZero = function(){
-		/**
-		 *  @type {WaveShaperNode}
-		 *  @private
-		 */
-		this._equals = this.context.createWaveShaper();
-
-		/**
-		 *  @type {WaveShaperNode}
-		 *  @private
-		 */
-		this._thresh = new Tone.Threshold(1);
-
-		/**
-		 *  @type {WaveShaperNode}
-		 */
-		this.input = this._equals;
-
-		this._equals.connect(this._thresh);
-
-		this.output = this._thresh;
-
-
-		this._setEquals();
-	};
-
-	Tone.extend(Tone.EqualsZero);
-
-	/**
-	 *  @private
-	 */
-	Tone.EqualsZero.prototype._setEquals = function(){
-		var curveLength = 1024;
-		var curve = new Float32Array(curveLength);
-		for (var i = 0; i < curveLength; i++){
-			var normalized = (i / (curveLength));
-			var val;
-			if (normalized === 0.5){
-				val = 1;
-			} else {
-				val = 0;
-			}
-			curve[i] = val;
-		}
-		this._equals.curve = curve;
-	};
-
-	/**
-	 *  dispose method
-	 */
-	Tone.EqualsZero.prototype.dispose = function(){
+	Tone.Equal.prototype.dispose = function(){
 		this._equals.disconnect();
-		this._thresh.dispose();
+		this._adder.dispose();
 		this._equals = null;
-		this._thresh = null;
+		this._adder = null;
 	};
 
-	return Tone.EqualsZero;
+	return Tone.Equal;
 });
-define('Tone/signal/Negate',["Tone/core/Tone", "Tone/signal/Multiply"], function(Tone){
-
-	/**
-	 *  Negate the incoming signal. i.e. an input signal of 10 will output -10
-	 *
-	 *  @constructor
-	 *  @extends {Tone}
-	 */
-	Tone.Negate = function(value){
-		/**
-		 *  negation is done by multiplying by -1
-		 *  @type {Tone.Multiply}
-		 *  @private
-		 */
-		this._multiply = new Tone.Multiply(-1);
-
-		/**
-		 *  the input and output
-		 */
-		this.input = this.output = this._multiply;
-	};
-
-	Tone.extend(Tone.Negate);
-
-	/**
-	 *  clean up
-	 */
-	Tone.Negate.prototype.dispose = function(){
-		this.input.disconnect();
-		this.input = null;
-	}; 
-
-	return Tone.Negate;
-});
-define('Tone/signal/Switch',["Tone/core/Tone", "Tone/signal/Signal", "Tone/signal/Threshold"], function(Tone){
+define('Tone/signal/Gate',["Tone/core/Tone", "Tone/signal/Signal", "Tone/signal/Threshold"], function(Tone){
 
 	/**
 	 *  When the gate is set to 0, the input signal does not pass through to the output. 
@@ -3996,7 +4210,7 @@ define('Tone/signal/Switch',["Tone/core/Tone", "Tone/signal/Signal", "Tone/signa
 	 *  @constructor
 	 *  @extends {Tone}
 	 */
-	Tone.Switch = function(){
+	Tone.Gate = function(){
 		Tone.call(this);
 
 		/**
@@ -4020,14 +4234,14 @@ define('Tone/signal/Switch',["Tone/core/Tone", "Tone/signal/Signal", "Tone/signa
 		this.output.gain.value = 0;
 	};
 
-	Tone.extend(Tone.Switch);
+	Tone.extend(Tone.Gate);
 
 	/**
 	 *  open the switch at a specific time
 	 *
 	 *  @param {Tone.Time} time the time when the switch will be open
 	 */
-	Tone.Switch.prototype.open = function(time){
+	Tone.Gate.prototype.open = function(time){
 		this.gate.setValueAtTime(1, this.toSeconds(time));
 	}; 
 
@@ -4036,14 +4250,14 @@ define('Tone/signal/Switch',["Tone/core/Tone", "Tone/signal/Signal", "Tone/signa
 	 *
 	 *  @param {Tone.Time} time the time when the switch will be open
 	 */
-	Tone.Switch.prototype.close = function(time){
+	Tone.Gate.prototype.close = function(time){
 		this.gate.setValueAtTime(0, this.toSeconds(time));
 	}; 
 
 	/**
 	 *  clean up
 	 */
-	Tone.Switch.prototype.dispose = function(){
+	Tone.Gate.prototype.dispose = function(){
 		this.gate.dispose();
 		this._thresh.dispose();
 		this.input.disconnect();
@@ -4054,7 +4268,139 @@ define('Tone/signal/Switch',["Tone/core/Tone", "Tone/signal/Signal", "Tone/signa
 		this.output = null;
 	}; 
 
-	return Tone.Switch;
+	return Tone.Gate;
+});
+define('Tone/signal/GreaterThan',["Tone/core/Tone", "Tone/signal/Threshold"], function(Tone){
+
+	/**
+	 *  Output 1 if the signal is greater than the value, otherwise outputs 0
+	 *  
+	 *  @constructor
+	 *  @extends {Tone}
+	 *  @param {number=} [value=0] the value to compare to the incoming signal
+	 */
+	Tone.GreaterThan = function(value){
+		/**
+		 *  @type {WaveShaperNode}
+		 *  @private
+		 */
+		this._gt = this.context.createWaveShaper();
+
+		/**
+		 *  @type {WaveShaperNode}
+		 *  @private
+		 */
+		this._thresh = new Tone.Threshold(0.001);
+
+		/**
+		 *  subtract the value from the incoming signal
+		 *  
+		 *  @type {Tone.Add}
+		 *  @private
+		 */
+		this._adder = new Tone.Add(this.defaultArg(-value, 0));
+
+		/**
+	 	 *  alias for the adder
+		 *  @type {Tone.Add}
+		 */
+		this.input = this._adder;
+
+		/**
+		 *  alias for the thresh
+		 *  @type {Tone.Threshold}
+		 */
+		this.output = this._thresh;
+
+		//connect
+		this.chain(this._adder, this._gt, this._thresh);
+		//setup waveshaper
+		this._setGreaterThanZero();
+	};
+
+	Tone.extend(Tone.GreaterThan);
+
+	/**
+	 *  @private
+	 */
+	Tone.GreaterThan.prototype._setGreaterThanZero = function(){
+		var curveLength = 1024;
+		var curve = new Float32Array(curveLength);
+		for (var i = 0; i < curveLength; i++){
+			var normalized = (i / (curveLength)) * 2 - 1;
+			if (normalized > 0){
+				curve[i] = 1;
+			} else {
+				curve[i] = 0;
+			}
+		}
+		this._gt.curve = curve;
+	};
+
+	/**
+	 *  set the value to compare to
+	 *  
+	 *  @param {number} value
+	 */
+	Tone.GreaterThan.prototype.setValue = function(value){
+		this._adder.setValue(-value);
+	};
+
+	/**
+	 *  dispose method
+	 */
+	Tone.GreaterThan.prototype.dispose = function(){
+		this._gt.disconnect();
+		this._adder.disconnect();
+		this._thresh.dispose();
+		this._gt = null;
+		this._adder = null;
+		this._thresh = null;
+	};
+
+	return Tone.GreaterThan;
+});
+define('Tone/signal/LessThan',["Tone/core/Tone", "Tone/signal/GreaterThan"], function(Tone){
+
+	/**
+	 *  Output 1 if the signal is less than the value, otherwise outputs 0
+	 *  
+	 *  @constructor
+	 *  @extends {Tone}
+	 *  @param {number} value the value to compare the incoming signal to
+	 */
+	Tone.LessThan = function(value){
+		/**
+		 *  
+		 *  @type {Tone.GreaterThan}
+		 *  @private
+		 */
+		this._gt = new Tone.GreaterThan(-value);
+
+		/**
+		 *  @type {Tone.GreaterThan}
+		 */
+		this.input = this.output = this._gt;
+	};
+
+	Tone.extend(Tone.LessThan);
+
+	/**
+	 *  @param {number} value
+	 */
+	Tone.LessThan.prototype.setValue = function(value){
+		this._gt.setValue(-value);
+	};
+
+	/**
+	 *  dispose method
+	 */
+	Tone.LessThan.prototype.dispose = function(){
+		this._gt.dispose();
+		this._gt = null;
+	};
+
+	return Tone.GreaterThan;
 });
 ///////////////////////////////////////////////////////////////////////////////
 //

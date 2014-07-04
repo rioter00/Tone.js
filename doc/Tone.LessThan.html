@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Tone.js Class: LFO</title>
+	<title>Tone.js Class: LessThan</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -181,14 +181,14 @@
 					
 
 
-	<h1 class="page-title">Class: LFO</h1>
+	<h1 class="page-title">Class: LessThan</h1>
 <section>
 
 <header>
     <h2>
         <span class="ancestors"><a href="Tone.html">Tone</a>.</span>
     
-    LFO
+    LessThan
     </h2>
     
 </header>
@@ -200,7 +200,7 @@
     
         
 <dt>
-    <h4 class="name" id="LFO"><span class="type-signature"></span>new LFO<span class="signature">(rate, <span class="optional">outputMin</span>, <span class="optional">outputMax</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="LessThan"><span class="type-signature"></span>new LessThan<span class="signature">(value)</span><span class="type-signature"></span></h4>
     
     
 </dt>
@@ -208,10 +208,7 @@
     
     
     <div class="description">
-        <p>Low Frequency Oscillator</p>
-<p> LFO produces an output signal which can be attached to an AudioParam
-     for constant control over that parameter
-     the LFO can also be synced to the transport</p>
+        <p>Output 1 if the signal is less than the value, otherwise outputs 0</p>
     </div>
     
 
@@ -233,8 +230,6 @@
 		<th>Type</th>
 
 		
-		<th>Argument</th>
-		
 
 		
 
@@ -247,7 +242,7 @@
 
         <tr>
             
-                <td class="name"><code>rate</code></td>
+                <td class="name"><code>value</code></td>
             
 
             <td class="type">
@@ -260,84 +255,10 @@
             </td>
 
             
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
 
             
 
-            <td class="description last"></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>outputMin</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>outputMax</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"></td>
+            <td class="description last"><p>the value to compare the incoming signal to</p></td>
         </tr>
 
 	
@@ -369,7 +290,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-2860">line 2860</a>
+        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-4372">line 4372</a>
     </li></ul></dd>
     
 
@@ -419,18 +340,23 @@
         <dl>
             
 <dt>
-    <h4 class="name" id="connect"><span class="type-signature"></span>connect<span class="type-signature"></span></h4>
+    <h4 class="name" id="input"><span class="type-signature"></span>input<span class="type-signature"> :<a href="Tone.GreaterThan.html">Tone.GreaterThan</a></span></h4>
     
     
 </dt>
 <dd>
     
-    <div class="description">
-        <p>override the connect method so that it 0's out the value 
-    if attached to an AudioParam</p>
-    </div>
     
     
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="Tone.GreaterThan.html">Tone.GreaterThan</a></span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -456,7 +382,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-2957">line 2957</a>
+        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-4383">line 4383</a>
     </li></ul></dd>
     
 
@@ -474,11 +400,15 @@
         
             
 <dt>
-    <h4 class="name" id="input"><span class="type-signature"></span>input<span class="type-signature"> :GainNode</span></h4>
+    <h4 class="name" id="output"><span class="type-signature"></span>output<span class="type-signature"> :GainNode</span></h4>
     
     
 </dt>
 <dd>
+    
+    <div class="description">
+        <p>default output of the ToneNode</p>
+    </div>
     
     
     
@@ -502,65 +432,10 @@
     
 
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-2862">line 2862</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="oscillator"><span class="type-signature"></span>oscillator<span class="type-signature"> :<a href="Tone.Oscillator.html">Tone.Oscillator</a></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type"><a href="Tone.Oscillator.html">Tone.Oscillator</a></span>
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-
-    
-
-    
-
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="Tone.html#output">Tone#output</a>
+    </li></dd>
     
 
     
@@ -576,61 +451,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-2864">line 2864</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="output"><span class="type-signature"></span>output<span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        <p>alias for the output</p>
-    </div>
-    
-    
-    
-
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-2871">line 2871</a>
+        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-117">line 117</a>
     </li></ul></dd>
     
 
@@ -761,6 +582,135 @@
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-168">line 168</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="connect"><span class="type-signature"></span>connect<span class="signature">(unit)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>connect the output of a ToneNode to an AudioParam, AudioNode, or ToneNode</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>unit</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Tone.html">Tone</a></span>
+|
+
+<span class="param-type">AudioParam</span>
+|
+
+<span class="param-type"><a href="AudioNode.html">AudioNode</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+    
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="Tone.html#connect">Tone#connect</a>
+    </li></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-153">line 153</a>
     </li></ul></dd>
     
 
@@ -1177,7 +1127,7 @@
     
     
     <div class="description">
-        <p>disconnect and dispose</p>
+        <p>dispose method</p>
     </div>
     
 
@@ -1210,7 +1160,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-2962">line 2962</a>
+        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-4398">line 4398</a>
     </li></ul></dd>
     
 
@@ -3577,16 +3527,12 @@
         
             
 <dt>
-    <h4 class="name" id="setFrequency"><span class="type-signature"></span>setFrequency<span class="signature">(rate)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="setValue"><span class="type-signature"></span>setValue<span class="signature">(value)</span><span class="type-signature"></span></h4>
     
     
 </dt>
 <dd>
     
-    
-    <div class="description">
-        <p>set the frequency</p>
-    </div>
     
 
     
@@ -3619,7 +3565,7 @@
 
         <tr>
             
-                <td class="name"><code>rate</code></td>
+                <td class="name"><code>value</code></td>
             
 
             <td class="type">
@@ -3667,667 +3613,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-2917">line 2917</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="setMax"><span class="type-signature"></span>setMax<span class="signature">(min)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>set the maximum output of the LFO</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>min</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-    
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-2933">line 2933</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="setMin"><span class="type-signature"></span>setMin<span class="signature">(min)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>set the minimum output of the LFO</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>min</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-    
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-2925">line 2925</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="setType"><span class="type-signature"></span>setType<span class="signature">(type)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>set the waveform of the LFO</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>type</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-    
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-2941">line 2941</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="start"><span class="type-signature"></span>start<span class="signature">(time)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>start the LFO</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>time</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Tone.Time</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-    
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-2883">line 2883</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="stop"><span class="type-signature"></span>stop<span class="signature">(time)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>stop the LFO</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>time</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Tone.Time</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-    
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-2891">line 2891</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="sync"><span class="type-signature"></span>sync<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Sync the start/stop/pause to the transport 
- and the frequency to the bpm of the transport</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-2899">line 2899</a>
+        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-4391">line 4391</a>
     </li></ul></dd>
     
 
@@ -5092,75 +4378,6 @@
 
 
         
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="unsync"><span class="type-signature"></span>unsync<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>unsync the LFO from transport control</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Tone.js.html">Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-2907">line 2907</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
     
     
 </dd>
