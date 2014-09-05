@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Tone.js Source: instrument/DuoSynth.js</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	
+	<link type="text/css" rel="stylesheet" href="styles/site.spacelab.css">
+	
+</head>
+
+<body>
+<div class="container-fluid">
+	<div class="navbar navbar-fixed-top navbar-inverse">
+		<div class="navbar-inner">
+			<a class="brand" href="index.html">Tone.js</a>
+			<ul class="nav">
+				
+				<li class="dropdown">
+					<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b
+						class="caret"></b></a>
+
+					<ul class="dropdown-menu ">
+						
+						<li>
+							<a href="Tone.html">Tone</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Abs.html">Abs</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Add.html">Add</a>
+						</li>
+						
+						<li>
+							<a href="Tone.AutoPanner.html">AutoPanner</a>
+						</li>
+						
+						<li>
+							<a href="Tone.AutoWah.html">AutoWah</a>
+						</li>
+						
+						<li>
+							<a href="Tone.BitCrusher.html">BitCrusher</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Chorus.html">Chorus</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Clip.html">Clip</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Clock.html">Clock</a>
+						</li>
+						
+						<li>
+							<a href="Tone.DryWet.html">DryWet</a>
+						</li>
+						
+						<li>
+							<a href="Tone.DuoSynth.html">DuoSynth</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Effect.html">Effect</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Envelope.html">Envelope</a>
+						</li>
+						
+						<li>
+							<a href="Tone.EQ.html">EQ</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Equal.html">Equal</a>
+						</li>
+						
+						<li>
+							<a href="Tone.EqualZero.html">EqualZero</a>
+						</li>
+						
+						<li>
+							<a href="Tone.FeedbackDelay.html">FeedbackDelay</a>
+						</li>
+						
+						<li>
+							<a href="Tone.FeedbackEffect.html">FeedbackEffect</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Filter.html">Filter</a>
+						</li>
+						
+						<li>
+							<a href="Tone.FMSynth.html">FMSynth</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Follower.html">Follower</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Gate.html">Gate</a>
+						</li>
+						
+						<li>
+							<a href="Tone.GreaterThan.html">GreaterThan</a>
+						</li>
+						
+						<li>
+							<a href="Tone.LessThan.html">LessThan</a>
+						</li>
+						
+						<li>
+							<a href="Tone.LFO.html">LFO</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Max.html">Max</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Merge.html">Merge</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Meter.html">Meter</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Microphone.html">Microphone</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Min.html">Min</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Monophonic.html">Monophonic</a>
+						</li>
+						
+						<li>
+							<a href="Tone.MonoSynth.html">MonoSynth</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Multiply.html">Multiply</a>
+						</li>
+						
+						<li>
+							<a href="Tone.MultiSampler.html">MultiSampler</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Negate.html">Negate</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Noise.html">Noise</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Note.html">Note</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Oscillator.html">Oscillator</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Panner.html">Panner</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Phaser.html">Phaser</a>
+						</li>
+						
+						<li>
+							<a href="Tone.PingPongDelay.html">PingPongDelay</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Player.html">Player</a>
+						</li>
+						
+						<li>
+							<a href="Tone.PolySynth.html">PolySynth</a>
+						</li>
+						
+						<li>
+							<a href="Tone.PulseOscillator.html">PulseOscillator</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Recorder.html">Recorder</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Route.html">Route</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Sampler.html">Sampler</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Scale.html">Scale</a>
+						</li>
+						
+						<li>
+							<a href="Tone.ScaleExp.html">ScaleExp</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Selector.html">Selector</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Signal.html">Signal</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Source.html">Source</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Split.html">Split</a>
+						</li>
+						
+						<li>
+							<a href="Tone.StereoEffect.html">StereoEffect</a>
+						</li>
+						
+						<li>
+							<a href="Tone.StereoFeedbackEffect.html">StereoFeedbackEffect</a>
+						</li>
+						
+						<li>
+							<a href="Tone.StereoXFeedbackEffect.html">StereoXFeedbackEffect</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Switch.html">Switch</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Threshold.html">Threshold</a>
+						</li>
+						
+
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+	</div>
+
+	<div class="row-fluid">
+
+		
+			<div class="span12">
+				
+				<div id="main">
+					
+
+
+		<h1 class="page-title">Source: instrument/DuoSynth.js</h1>
+    
+    <section>
+        <article>
+            <pre class="sunlight-highlight-javascript linenums">define(["Tone/core/Tone", "Tone/instrument/MonoSynth", "Tone/component/LFO", "Tone/signal/Signal", "Tone/signal/Multiply", "Tone/instrument/Monophonic"], 
+function(Tone){
+
+	"use strict";
+
+	/**
+	 *  @class  the DuoSynth is a monophonic synth composed of two 
+	 *          MonoSynths run in parallel with control over the 
+	 *          frequency ratio between the two voices and vibrato effect.
+	 *
+	 *  @constructor
+	 *  @extends {Tone.Monophonic}
+	 *  @param {Object} options the options available for the synth 
+	 *                          see defaults below
+	 */
+	Tone.DuoSynth = function(options){
+
+		options = this.defaultArg(options, Tone.DuoSynth.defaults);
+		Tone.Monophonic.call(this, options);
+
+		/**
+		 *  the first voice
+		 *  @type {Tone.MonoSynth}
+		 */
+		this.voice0 = new Tone.MonoSynth(options.voice0);
+		this.voice0.setVolume(-10);
+
+		/**
+		 *  the second voice
+		 *  @type {Tone.MonoSynth}
+		 */
+		this.voice1 = new Tone.MonoSynth(options.voice1);
+		this.voice1.setVolume(-10);
+
+		/**
+		 *  the vibrato lfo
+		 *  @type {Tone.LFO}
+		 */
+		this._vibrato = new Tone.LFO(options.vibratoRate, -50, 50);
+		this._vibrato.start();
+
+		/**
+		 *  the vibrato gain
+		 *  @type {GainNode}
+		 *  @private
+		 */
+		this._vibratoGain = this.context.createGain();
+		this._vibratoGain.gain.value = options.vibratoAmount;
+
+		/**
+		 *  the delay before the vibrato starts
+		 *  @type {number}
+		 */
+		this._vibratoDelay = this.toSeconds(options.vibratoDelay);
+
+		/**
+		 *  the amount before the vibrato starts
+		 *  @type {number}
+		 */
+		this._vibratoAmount = options.vibratoAmount;
+
+		/**
+		 *  the frequency control
+		 *  @type {Tone.Signal}
+		 */
+		this.frequency = new Tone.Signal(440);
+
+		/**
+		 *  the ratio between the two voices
+		 *  @type {Tone.Multiply}
+		 *  @private
+		 */
+		this._harmonicity = new Tone.Multiply(options.harmonicity);
+
+		//control the two voices frequency
+		this.frequency.connect(this.voice0.frequency);
+		this.chain(this.frequency, this._harmonicity, this.voice1.frequency);
+		this._vibrato.connect(this._vibratoGain);
+		this.fan(this._vibratoGain, this.voice0.detune, this.voice1.detune);
+		this.voice0.connect(this.output);
+		this.voice1.connect(this.output);
+	};
+
+	Tone.extend(Tone.DuoSynth, Tone.Monophonic);
+
+	/**
+	 *  @static
+	 *  @type {Object}
+	 */
+	Tone.DuoSynth.defaults = {
+		"vibratoAmount" : 0.5,
+		"vibratoRate" : 5,
+		"vibratoDelay" : 1,
+		"harmonicity" : 1.5,
+		"voice0" : {
+			"volume" : -10,
+			"portamento" : 0,
+			"oscType" : "sine",
+			"filterEnvelope" : {
+				"attack" : 0.01,
+				"decay" : 0.0,
+				"sustain" : 1,
+				"release" : 0.5
+			},
+			"envelope" : {
+				"attack" : 0.01,
+				"decay" : 0.0,
+				"sustain" : 1,
+				"release" : 0.5
+			}
+		},
+		"voice1" : {
+			"volume" : -10,
+			"portamento" : 0,
+			"oscType" : "sine",
+			"filterEnvelope" : {
+				"attack" : 0.01,
+				"decay" : 0.0,
+				"sustain" : 1,
+				"release" : 0.5
+			},
+			"envelope" : {
+				"attack" : 0.01,
+				"decay" : 0.0,
+				"sustain" : 1,
+				"release" : 0.5
+			}
+		}
+	};
+
+	/**
+	 *  start the attack portion of the envelopes
+	 *  
+	 *  @param {Tone.Time=} [time=now] the time the attack should start
+	 *  @param {number=} velocity the velocity of the note (0-1)
+	 */
+	Tone.DuoSynth.prototype.triggerEnvelopeAttack = function(time, velocity){
+		time = this.toSeconds(time);
+		this.voice0.envelope.triggerAttack(time, velocity);
+		this.voice1.envelope.triggerAttack(time, velocity);
+		this.voice0.filterEnvelope.triggerAttack(time);
+		this.voice1.filterEnvelope.triggerAttack(time);
+	};
+
+	/**
+	 *  start the release portion of the envelopes
+	 *  
+	 *  @param {Tone.Time=} [time=now] the time the release should start
+	 */
+	Tone.DuoSynth.prototype.triggerEnvelopeRelease = function(time){
+		this.voice0.triggerRelease(time);
+		this.voice1.triggerRelease(time);
+	};
+
+	/**
+	 *  set the ratio between the two oscillator
+	 *  @param {number} ratio
+	 */
+	Tone.DuoSynth.prototype.setHarmonicity = function(ratio){
+		this._harmonicity.setValue(ratio);
+	};
+
+	/**
+	 *  the glide time between frequencies
+	 *  @param {Tone.Time} port
+	 */
+	Tone.DuoSynth.prototype.setPortamento = function(port){
+		this.portamento = this.toSeconds(port);
+	};
+
+	/**
+	 *  the delay before the vibrato kicks in
+	 *  @param {Tone.Time} delay
+	 */
+	Tone.DuoSynth.prototype.setVibratoDelay = function(delay){
+		this._vibratoDelay = this.toSeconds(delay);
+	};
+
+	/**
+	 *  the vibrato amount. 1 is full vib. 0 is none.
+	 *  @param {number} amount an amount between 0-1
+	 */
+	Tone.DuoSynth.prototype.setVibratoAmount = function(amount){
+		this._vibratoAmount = amount;
+		this._vibratoGain.gain.setValueAtTime(amount, this.now());
+	};
+
+	/**
+	 *  the rate of the vibrato
+	 *  @param {number} rate
+	 */
+	Tone.DuoSynth.prototype.setVibratoRate = function(rate){
+		this._vibrato.setFrequency(rate);
+	};
+
+	/**
+	 *  set the volume of the instrument.
+	 *  borrowed from {@link Tone.Source}
+	 *  @function
+	 */
+	Tone.DuoSynth.prototype.setVolume = Tone.Source.prototype.setVolume;
+
+	/**
+	 *  bulk setter
+	 *  @param {Object} param 
+	 */
+	Tone.DuoSynth.prototype.set = function(params){
+		if (!this.isUndef(params.harmonicity)) this.setHarmonicity(params.harmonicity);
+		if (!this.isUndef(params.vibratoRate)) this.setVibratoRate(params.vibratoRate);
+		if (!this.isUndef(params.vibratoAmount)) this.setVibratoAmount(params.vibratoAmount);
+		if (!this.isUndef(params.vibratoDelay)) this.setVibratoDelay(params.vibratoDelay);
+		if (!this.isUndef(params.voice0)) this.voice0.set(params.voice0);
+		if (!this.isUndef(params.voice1)) this.voice1.set(params.voice1);
+		Tone.Monophonic.prototype.set.call(this, params);
+	};
+
+	/**
+	 *  clean up
+	 */
+	Tone.DuoSynth.dispose = function(){
+		Tone.Monophonic.prototype.dispose.call(this);
+		this.voice0.dispose();
+		this.voice1.dispose();
+		this.frequency.dispose();
+		this._vibrato.dispose();
+		this._vibratoGain.disconnect();
+		this._harmonicity.dispose();
+		this.voice0 = null;
+		this.voice1 = null;
+		this.frequency = null;
+		this._vibrato = null;
+		this._vibratoGain = null;
+		this._harmonicity = null;
+	};
+
+	return Tone.DuoSynth;
+});</pre>
+        </article>
+    </section>
+
+
+
+
+
+				</div>
+
+				<div class="clearfix"></div>
+				<footer>
+					
+					
+		<span class="copyright">
+		Tone No Tone Copyright © 2014.
+		</span>
+					<br />
+					
+		<span class="jsdoc-message">
+		Documentation generated on Fri Sep 05 2014 01:33:04 GMT-0400 (EDT).
+		</span>
+				</footer>
+			</div>
+
+			
+			<br clear="both">
+		</div>
+
+	</div>
+	<script src="scripts/sunlight.js"></script>
+	<script src="scripts/sunlight.javascript.js"></script>
+	<script src="scripts/sunlight-plugin.doclinks.js"></script>
+	<script src="scripts/sunlight-plugin.linenumbers.js"></script>
+	<script src="scripts/sunlight-plugin.menu.js"></script>
+	<script src="scripts/jquery.min.js"></script>
+	<script src="scripts/jquery.scrollTo.js"></script>
+	<script src="scripts/jquery.localScroll.js"></script>
+	<script src="scripts/bootstrap-dropdown.js"></script>
+	<script src="scripts/toc.js"></script>
+
+
+	<script>  Sunlight.highlightAll({lineNumbers:true,  showMenu: true, enableDoclinks :true}); </script>
+
+	<script>
+		$( function () {
+			$( "#toc" ).toc( {
+				selectors   : "h1,h2,h3,h4",
+				showAndHide : false,
+				scrollTo    : 60
+			} );
+			$( "#toc>ul" ).addClass( "nav nav-pills nav-stacked" );
+			$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+
+		} );
+	</script>
+
+	
+	<script>
+		$( function () {
+			$('#main').localScroll({
+				offset: { top: 56 } //offset by the height of your header (give or take a few px, see what works for you)
+			});
+			$( "dt h4.name" ).each( function () {
+				var $this = $( this );
+				var icon = $( "<i/>" ).addClass( "icon-plus-sign" ).addClass( "pull-right" ).addClass( "icon-white" );
+				var dt = $this.parents( "dt" );
+				var children = dt.next( "dd" );
+
+				$this.append( icon ).css( {cursor : "pointer"} );
+				$this.addClass( "member-collapsed" ).addClass( "member" );
+
+				children.hide();
+				$this.toggle( function () {
+					icon.addClass( "icon-minus-sign" ).removeClass( "icon-plus-sign" ).removeClass( "icon-white" );
+					$this.addClass( "member-open" ).removeClass( "member-collapsed" );
+					children.slideDown();
+				}, function () {
+					icon.addClass( "icon-plus-sign" ).removeClass( "icon-minus-sign" ).addClass( "icon-white" );
+					$this.addClass( "member-collapsed" ).removeClass( "member-open" );
+					children.slideUp();
+				} );
+			} );
+		} );
+	</script>
+	
+
+</body>
+</html>
