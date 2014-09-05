@@ -301,7 +301,10 @@
     
         
 <dt>
-    <h4 class="name" id="Filter"><span class="type-signature"></span>new Filter<span class="signature">(freq, <span class="optional">type</span>, <span class="optional">rolloff</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="Filter">
+        <span class="type-signature"></span>new Filter<span class="signature">(freq, <span class="optional">type</span>, <span class="optional">rolloff</span>)</span><span class="type-signature"></span>
+        
+    </h4>
     
     
 </dt>
@@ -928,12 +931,626 @@
     
 
     
-        <h3 class="subsection-title">Methods</h3>
 
+        <!-- FIRST NON INHERITED METHODS -->
+        <h3 class="subsection-title">Methods</h3>
         <dl>
             
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+            
 <dt>
-    <h4 class="name" id="chain"><span class="type-signature"></span>chain<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="dispose">
+        <span class="type-signature"></span>dispose<span class="signature">()</span><span class="type-signature"></span>
+        
+    </h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>clean up</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Filter.js.html">component/Filter.js</a>, <a href="Filter.js.html#sunlight-1-line-140">line 140</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+            
+<dt>
+    <h4 class="name" id="getType">
+        <span class="type-signature"></span>getType<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span>
+        
+    </h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>get the type</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Filter.js.html">component/Filter.js</a>, <a href="Filter.js.html#sunlight-1-line-102">line 102</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>the type of the filter</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">string</span>
+
+
+	</dd>
+</dl>
+
+
+        
+    
+    
+</dd>
+
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+            
+<dt>
+    <h4 class="name" id="set">
+        <span class="type-signature"></span>set<span class="signature">(params)</span><span class="type-signature"></span>
+        
+    </h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>set the parameters at once</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>params</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+    
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Filter.js.html">component/Filter.js</a>, <a href="Filter.js.html#sunlight-1-line-79">line 79</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+            
+        
+            
+            
+<dt>
+    <h4 class="name" id="setRolloff">
+        <span class="type-signature"></span>setRolloff<span class="signature">(rolloff)</span><span class="type-signature"></span>
+        
+    </h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>set the rolloff frequency which is the drop in db
+ per octave. implemented internally by cascading filters</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>rolloff</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the slope of the rolloff. only accepts
+                         -12, -24, and -48.</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+    
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Filter.js.html">component/Filter.js</a>, <a href="Filter.js.html#sunlight-1-line-113">line 113</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+            
+        
+            
+            
+<dt>
+    <h4 class="name" id="setType">
+        <span class="type-signature"></span>setType<span class="signature">(type)</span><span class="type-signature"></span>
+        
+    </h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>set the type</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the filter type</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+    
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Filter.js.html">component/Filter.js</a>, <a href="Filter.js.html#sunlight-1-line-91">line 91</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        </dl>
+        <!-- THEN INHERITED METHODS -->
+        <h4 class="subsection-title">Inherited Methods</h4>
+        <dl>
+            
+            
+<dt>
+    <h4 class="name" id="chain">
+        <span class="type-signature"></span>chain<span class="signature">()</span><span class="type-signature"></span>
+        
+        <span class="inherited-from">
+            <a href="Tone.html#chain">Tone</a>
+        </span>
+        
+    </h4>
     
     
 </dt>
@@ -1067,10 +1684,19 @@
     
 </dd>
 
+            
         
             
+            
 <dt>
-    <h4 class="name" id="connect"><span class="type-signature"></span>connect<span class="signature">(unit, <span class="optional">outputNum</span>, <span class="optional">inputNum</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="connect">
+        <span class="type-signature"></span>connect<span class="signature">(unit, <span class="optional">outputNum</span>, <span class="optional">inputNum</span>)</span><span class="type-signature"></span>
+        
+        <span class="inherited-from">
+            <a href="Tone.html#connect">Tone</a>
+        </span>
+        
+    </h4>
     
     
 </dt>
@@ -1272,10 +1898,19 @@
     
 </dd>
 
+            
         
             
+            
 <dt>
-    <h4 class="name" id="dbToGain"><span class="type-signature"></span>dbToGain<span class="signature">(db)</span><span class="type-signature"> &rarr; {number}</span></h4>
+    <h4 class="name" id="dbToGain">
+        <span class="type-signature"></span>dbToGain<span class="signature">(db)</span><span class="type-signature"> &rarr; {number}</span>
+        
+        <span class="inherited-from">
+            <a href="Tone.html#dbToGain">Tone</a>
+        </span>
+        
+    </h4>
     
     
 </dt>
@@ -1414,10 +2049,19 @@
     
 </dd>
 
+            
         
             
+            
 <dt>
-    <h4 class="name" id="defaultArg"><span class="type-signature"></span>defaultArg<span class="signature">(given, fallback)</span><span class="type-signature"> &rarr; {*}</span></h4>
+    <h4 class="name" id="defaultArg">
+        <span class="type-signature"></span>defaultArg<span class="signature">(given, fallback)</span><span class="type-signature"> &rarr; {*}</span>
+        
+        <span class="inherited-from">
+            <a href="Tone.html#defaultArg">Tone</a>
+        </span>
+        
+    </h4>
     
     
 </dt>
@@ -1584,10 +2228,19 @@
     
 </dd>
 
+            
         
             
+            
 <dt>
-    <h4 class="name" id="disconnect"><span class="type-signature"></span>disconnect<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="disconnect">
+        <span class="type-signature"></span>disconnect<span class="signature">()</span><span class="type-signature"></span>
+        
+        <span class="inherited-from">
+            <a href="Tone.html#disconnect">Tone</a>
+        </span>
+        
+    </h4>
     
     
 </dt>
@@ -1658,79 +2311,21 @@
     
 </dd>
 
+            
         
             
-<dt>
-    <h4 class="name" id="dispose"><span class="type-signature"></span>dispose<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>clean up</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Filter.js.html">component/Filter.js</a>, <a href="Filter.js.html#sunlight-1-line-140">line 140</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
         
             
+            
 <dt>
-    <h4 class="name" id="equalPowerScale"><span class="type-signature"></span>equalPowerScale<span class="signature">(percent)</span><span class="type-signature"> &rarr; {number}</span></h4>
+    <h4 class="name" id="equalPowerScale">
+        <span class="type-signature"></span>equalPowerScale<span class="signature">(percent)</span><span class="type-signature"> &rarr; {number}</span>
+        
+        <span class="inherited-from">
+            <a href="Tone.html#equalPowerScale">Tone</a>
+        </span>
+        
+    </h4>
     
     
 </dt>
@@ -1874,10 +2469,19 @@
     
 </dd>
 
+            
         
             
+            
 <dt>
-    <h4 class="name" id="expScale"><span class="type-signature"></span>expScale<span class="signature">(gain)</span><span class="type-signature"> &rarr; {number}</span></h4>
+    <h4 class="name" id="expScale">
+        <span class="type-signature"></span>expScale<span class="signature">(gain)</span><span class="type-signature"> &rarr; {number}</span>
+        
+        <span class="inherited-from">
+            <a href="Tone.html#expScale">Tone</a>
+        </span>
+        
+    </h4>
     
     
 </dt>
@@ -2016,10 +2620,19 @@
     
 </dd>
 
+            
         
             
+            
 <dt>
-    <h4 class="name" id="fan"><span class="type-signature"></span>fan<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="fan">
+        <span class="type-signature"></span>fan<span class="signature">()</span><span class="type-signature"></span>
+        
+        <span class="inherited-from">
+            <a href="Tone.html#fan">Tone</a>
+        </span>
+        
+    </h4>
     
     
 </dt>
@@ -2153,10 +2766,19 @@
     
 </dd>
 
+            
         
             
+            
 <dt>
-    <h4 class="name" id="frequencyToNote"><span class="type-signature"></span>frequencyToNote<span class="signature">(freq)</span><span class="type-signature"> &rarr; {string}</span></h4>
+    <h4 class="name" id="frequencyToNote">
+        <span class="type-signature"></span>frequencyToNote<span class="signature">(freq)</span><span class="type-signature"> &rarr; {string}</span>
+        
+        <span class="inherited-from">
+            <a href="Tone.html#frequencyToNote">Tone</a>
+        </span>
+        
+    </h4>
     
     
 </dt>
@@ -2295,10 +2917,19 @@
     
 </dd>
 
+            
         
             
+            
 <dt>
-    <h4 class="name" id="frequencyToSeconds"><span class="type-signature"></span>frequencyToSeconds<span class="signature">(freq)</span><span class="type-signature"> &rarr; {number}</span></h4>
+    <h4 class="name" id="frequencyToSeconds">
+        <span class="type-signature"></span>frequencyToSeconds<span class="signature">(freq)</span><span class="type-signature"> &rarr; {number}</span>
+        
+        <span class="inherited-from">
+            <a href="Tone.html#frequencyToSeconds">Tone</a>
+        </span>
+        
+    </h4>
     
     
 </dt>
@@ -2442,10 +3073,19 @@
     
 </dd>
 
+            
         
             
+            
 <dt>
-    <h4 class="name" id="gainToDb"><span class="type-signature"></span>gainToDb<span class="signature">(gain)</span><span class="type-signature"> &rarr; {number}</span></h4>
+    <h4 class="name" id="gainToDb">
+        <span class="type-signature"></span>gainToDb<span class="signature">(gain)</span><span class="type-signature"> &rarr; {number}</span>
+        
+        <span class="inherited-from">
+            <a href="Tone.html#gainToDb">Tone</a>
+        </span>
+        
+    </h4>
     
     
 </dt>
@@ -2584,102 +3224,21 @@
     
 </dd>
 
+            
         
+            
+        
+            
             
 <dt>
-    <h4 class="name" id="getType"><span class="type-signature"></span>getType<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>get the type</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Filter.js.html">component/Filter.js</a>, <a href="Filter.js.html#sunlight-1-line-102">line 102</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>the type of the filter</p>
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">string</span>
-
-
-	</dd>
-</dl>
-
-
+    <h4 class="name" id="interpolate">
+        <span class="type-signature"></span>interpolate<span class="signature">(input, outputMin, outputMax)</span><span class="type-signature"> &rarr; {number}</span>
         
-    
-    
-</dd>
-
+        <span class="inherited-from">
+            <a href="Tone.html#interpolate">Tone</a>
+        </span>
         
-            
-<dt>
-    <h4 class="name" id="interpolate"><span class="type-signature"></span>interpolate<span class="signature">(input, outputMin, outputMax)</span><span class="type-signature"> &rarr; {number}</span></h4>
+    </h4>
     
     
 </dt>
@@ -2864,10 +3423,19 @@
     
 </dd>
 
+            
         
             
+            
 <dt>
-    <h4 class="name" id="isUndef"><span class="type-signature"></span>isUndef<span class="signature">(arg)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+    <h4 class="name" id="isUndef">
+        <span class="type-signature"></span>isUndef<span class="signature">(arg)</span><span class="type-signature"> &rarr; {boolean}</span>
+        
+        <span class="inherited-from">
+            <a href="Tone.html#isUndef">Tone</a>
+        </span>
+        
+    </h4>
     
     
 </dt>
@@ -3010,10 +3578,19 @@
     
 </dd>
 
+            
         
             
+            
 <dt>
-    <h4 class="name" id="logScale"><span class="type-signature"></span>logScale<span class="signature">(gain)</span><span class="type-signature"> &rarr; {number}</span></h4>
+    <h4 class="name" id="logScale">
+        <span class="type-signature"></span>logScale<span class="signature">(gain)</span><span class="type-signature"> &rarr; {number}</span>
+        
+        <span class="inherited-from">
+            <a href="Tone.html#logScale">Tone</a>
+        </span>
+        
+    </h4>
     
     
 </dt>
@@ -3152,10 +3729,19 @@
     
 </dd>
 
+            
         
             
+            
 <dt>
-    <h4 class="name" id="noGC"><span class="type-signature"></span>noGC<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="noGC">
+        <span class="type-signature"></span>noGC<span class="signature">()</span><span class="type-signature"></span>
+        
+        <span class="inherited-from">
+            <a href="Tone.html#noGC">Tone</a>
+        </span>
+        
+    </h4>
     
     
 </dt>
@@ -3228,10 +3814,19 @@
     
 </dd>
 
+            
         
             
+            
 <dt>
-    <h4 class="name" id="normalize"><span class="type-signature"></span>normalize<span class="signature">(input, inputMin, inputMax)</span><span class="type-signature"> &rarr; {number}</span></h4>
+    <h4 class="name" id="normalize">
+        <span class="type-signature"></span>normalize<span class="signature">(input, inputMin, inputMax)</span><span class="type-signature"> &rarr; {number}</span>
+        
+        <span class="inherited-from">
+            <a href="Tone.html#normalize">Tone</a>
+        </span>
+        
+    </h4>
     
     
 </dt>
@@ -3416,10 +4011,19 @@
     
 </dd>
 
+            
         
             
+            
 <dt>
-    <h4 class="name" id="notationToSeconds"><span class="type-signature"></span>notationToSeconds<span class="signature">(notation, <span class="optional">bpm</span>, <span class="optional">timeSignature</span>)</span><span class="type-signature"> &rarr; {number}</span></h4>
+    <h4 class="name" id="notationToSeconds">
+        <span class="type-signature"></span>notationToSeconds<span class="signature">(notation, <span class="optional">bpm</span>, <span class="optional">timeSignature</span>)</span><span class="type-signature"> &rarr; {number}</span>
+        
+        <span class="inherited-from">
+            <a href="Tone.html#notationToSeconds">Tone</a>
+        </span>
+        
+    </h4>
     
     
 </dt>
@@ -3634,10 +4238,19 @@
     
 </dd>
 
+            
         
             
+            
 <dt>
-    <h4 class="name" id="noteToFrequency"><span class="type-signature"></span>noteToFrequency<span class="signature">(note)</span><span class="type-signature"> &rarr; {number}</span></h4>
+    <h4 class="name" id="noteToFrequency">
+        <span class="type-signature"></span>noteToFrequency<span class="signature">(note)</span><span class="type-signature"> &rarr; {number}</span>
+        
+        <span class="inherited-from">
+            <a href="Tone.html#noteToFrequency">Tone</a>
+        </span>
+        
+    </h4>
     
     
 </dt>
@@ -3776,10 +4389,19 @@
     
 </dd>
 
+            
         
             
+            
 <dt>
-    <h4 class="name" id="now"><span class="type-signature"></span>now<span class="signature">()</span><span class="type-signature"> &rarr; {number}</span></h4>
+    <h4 class="name" id="now">
+        <span class="type-signature"></span>now<span class="signature">()</span><span class="type-signature"> &rarr; {number}</span>
+        
+        <span class="inherited-from">
+            <a href="Tone.html#now">Tone</a>
+        </span>
+        
+    </h4>
     
     
 </dt>
@@ -3869,10 +4491,19 @@
     
 </dd>
 
+            
         
             
+            
 <dt>
-    <h4 class="name" id="optionsObject"><span class="type-signature"></span>optionsObject<span class="signature">(values, keys, <span class="optional">defaults</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id="optionsObject">
+        <span class="type-signature"></span>optionsObject<span class="signature">(values, keys, <span class="optional">defaults</span>)</span><span class="type-signature"> &rarr; {Object}</span>
+        
+        <span class="inherited-from">
+            <a href="Tone.html#optionsObject">Tone</a>
+        </span>
+        
+    </h4>
     
     
 </dt>
@@ -4094,10 +4725,19 @@
     
 </dd>
 
+            
         
             
+            
 <dt>
-    <h4 class="name" id="receive"><span class="type-signature"></span>receive<span class="signature">(channelName, <span class="optional">input</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="receive">
+        <span class="type-signature"></span>receive<span class="signature">(channelName, <span class="optional">input</span>)</span><span class="type-signature"></span>
+        
+        <span class="inherited-from">
+            <a href="Tone.html#receive">Tone</a>
+        </span>
+        
+    </h4>
     
     
 </dt>
@@ -4274,10 +4914,19 @@
     
 </dd>
 
+            
         
             
+            
 <dt>
-    <h4 class="name" id="samplesToSeconds"><span class="type-signature"></span>samplesToSeconds<span class="signature">(samples)</span><span class="type-signature"> &rarr; {number}</span></h4>
+    <h4 class="name" id="samplesToSeconds">
+        <span class="type-signature"></span>samplesToSeconds<span class="signature">(samples)</span><span class="type-signature"> &rarr; {number}</span>
+        
+        <span class="inherited-from">
+            <a href="Tone.html#samplesToSeconds">Tone</a>
+        </span>
+        
+    </h4>
     
     
 </dt>
@@ -4416,10 +5065,19 @@
     
 </dd>
 
+            
         
             
+            
 <dt>
-    <h4 class="name" id="secondsToFrequency"><span class="type-signature"></span>secondsToFrequency<span class="signature">(seconds)</span><span class="type-signature"> &rarr; {number}</span></h4>
+    <h4 class="name" id="secondsToFrequency">
+        <span class="type-signature"></span>secondsToFrequency<span class="signature">(seconds)</span><span class="type-signature"> &rarr; {number}</span>
+        
+        <span class="inherited-from">
+            <a href="Tone.html#secondsToFrequency">Tone</a>
+        </span>
+        
+    </h4>
     
     
 </dt>
@@ -4558,10 +5216,19 @@
     
 </dd>
 
+            
         
             
+            
 <dt>
-    <h4 class="name" id="send"><span class="type-signature"></span>send<span class="signature">(channelName, amount)</span><span class="type-signature"> &rarr; {GainNode}</span></h4>
+    <h4 class="name" id="send">
+        <span class="type-signature"></span>send<span class="signature">(channelName, amount)</span><span class="type-signature"> &rarr; {GainNode}</span>
+        
+        <span class="inherited-from">
+            <a href="Tone.html#send">Tone</a>
+        </span>
+        
+    </h4>
     
     
 </dt>
@@ -4723,366 +5390,25 @@
     
 </dd>
 
+            
         
+            
+        
+            
+        
+            
+        
+            
             
 <dt>
-    <h4 class="name" id="set"><span class="type-signature"></span>set<span class="signature">(params)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>set the parameters at once</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
+    <h4 class="name" id="ticksToSeconds">
+        <span class="type-signature"></span>ticksToSeconds<span class="signature">(transportTime, <span class="optional">bpm</span>, <span class="optional">timeSignature</span>)</span><span class="type-signature"> &rarr; {number}</span>
         
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>params</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-    
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Filter.js.html">component/Filter.js</a>, <a href="Filter.js.html#sunlight-1-line-79">line 79</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
+        <span class="inherited-from">
+            <a href="Tone.html#ticksToSeconds">Tone</a>
+        </span>
         
-            
-<dt>
-    <h4 class="name" id="setRolloff"><span class="type-signature"></span>setRolloff<span class="signature">(rolloff)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>set the rolloff frequency which is the drop in db
- per octave. implemented internally by cascading filters</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>rolloff</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>the slope of the rolloff. only accepts
-                         -12, -24, and -48.</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-    
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Filter.js.html">component/Filter.js</a>, <a href="Filter.js.html#sunlight-1-line-113">line 113</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="setType"><span class="type-signature"></span>setType<span class="signature">(type)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>set the type</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>type</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>the filter type</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-    
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Filter.js.html">component/Filter.js</a>, <a href="Filter.js.html#sunlight-1-line-91">line 91</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="ticksToSeconds"><span class="type-signature"></span>ticksToSeconds<span class="signature">(transportTime, <span class="optional">bpm</span>, <span class="optional">timeSignature</span>)</span><span class="type-signature"> &rarr; {number}</span></h4>
+    </h4>
     
     
 </dt>
@@ -5301,10 +5627,19 @@
     
 </dd>
 
+            
         
             
+            
 <dt>
-    <h4 class="name" id="toFrequency"><span class="type-signature"></span>toFrequency<span class="signature">(time)</span><span class="type-signature"> &rarr; {number}</span></h4>
+    <h4 class="name" id="toFrequency">
+        <span class="type-signature"></span>toFrequency<span class="signature">(time)</span><span class="type-signature"> &rarr; {number}</span>
+        
+        <span class="inherited-from">
+            <a href="Tone.html#toFrequency">Tone</a>
+        </span>
+        
+    </h4>
     
     
 </dt>
@@ -5447,10 +5782,19 @@
     
 </dd>
 
+            
         
             
+            
 <dt>
-    <h4 class="name" id="toMaster"><span class="type-signature"></span>toMaster<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="toMaster">
+        <span class="type-signature"></span>toMaster<span class="signature">()</span><span class="type-signature"></span>
+        
+        <span class="inherited-from">
+            <a href="Tone.html#toMaster">Tone</a>
+        </span>
+        
+    </h4>
     
     
 </dt>
@@ -5496,7 +5840,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Master.js.html">core/Master.js</a>, <a href="Master.js.html#sunlight-1-line-68">line 68</a>
+        <a href="Master.js.html">core/Master.js</a>, <a href="Master.js.html#sunlight-1-line-66">line 66</a>
     </li></ul></dd>
     
 
@@ -5521,10 +5865,19 @@
     
 </dd>
 
+            
         
             
+            
 <dt>
-    <h4 class="name" id="toSamples"><span class="type-signature"></span>toSamples<span class="signature">(time)</span><span class="type-signature"> &rarr; {number}</span></h4>
+    <h4 class="name" id="toSamples">
+        <span class="type-signature"></span>toSamples<span class="signature">(time)</span><span class="type-signature"> &rarr; {number}</span>
+        
+        <span class="inherited-from">
+            <a href="Tone.html#toSamples">Tone</a>
+        </span>
+        
+    </h4>
     
     
 </dt>
@@ -5663,10 +6016,19 @@
     
 </dd>
 
+            
         
             
+            
 <dt>
-    <h4 class="name" id="toSeconds"><span class="type-signature"></span>toSeconds<span class="signature">(time, <span class="optional">now</span>)</span><span class="type-signature"> &rarr; {number}</span></h4>
+    <h4 class="name" id="toSeconds">
+        <span class="type-signature"></span>toSeconds<span class="signature">(time, <span class="optional">now</span>)</span><span class="type-signature"> &rarr; {number}</span>
+        
+        <span class="inherited-from">
+            <a href="Tone.html#toSeconds">Tone</a>
+        </span>
+        
+    </h4>
     
     
 </dt>
@@ -5857,10 +6219,19 @@
     
 </dd>
 
+            
         
             
+            
 <dt>
-    <h4 class="name" id="toSeconds"><span class="type-signature"></span>toSeconds<span class="signature">(time, <span class="optional">now</span>)</span><span class="type-signature"> &rarr; {number}</span></h4>
+    <h4 class="name" id="toSeconds">
+        <span class="type-signature"></span>toSeconds<span class="signature">(time, <span class="optional">now</span>)</span><span class="type-signature"> &rarr; {number}</span>
+        
+        <span class="inherited-from">
+            <a href="Tone.html#toSeconds">Tone</a>
+        </span>
+        
+    </h4>
     
     
 </dt>
@@ -6051,6 +6422,7 @@
     
 </dd>
 
+            
         </dl>
     
 
@@ -6076,7 +6448,7 @@
 					<br />
 					
 		<span class="jsdoc-message">
-		Documentation generated on Fri Sep 05 2014 01:33:13 GMT-0400 (EDT).
+		Documentation generated on Fri Sep 05 2014 11:42:12 GMT-0400 (EDT).
 		</span>
 				</footer>
 			</div>
