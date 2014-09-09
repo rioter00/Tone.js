@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Tone.js Source: component/Gate.js</title>
+	<title>Tone.js Source: signal/Modulo.js</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -281,88 +281,126 @@
 					
 
 
-		<h1 class="page-title">Source: component/Gate.js</h1>
+		<h1 class="page-title">Source: signal/Modulo.js</h1>
     
     <section>
         <article>
-            <pre class="sunlight-highlight-javascript linenums">define(["Tone/core/Tone", "Tone/component/Follower", "Tone/signal/GreaterThan"], function(Tone){
+            <pre class="sunlight-highlight-javascript linenums">define(["Tone/core/Tone", "Tone/signal/LessThan", "Tone/signal/Select", "Tone/signal/Not"], function(Tone){
 
 	"use strict";
 
 	/**
-	 *  @class  Only pass signal through when it's signal exceeds the
-	 *          specified threshold.
-	 *  
+	 *  @class Signal-rate modolu operator. Specify the modulus and the 
+	 *         number of bits of the incoming signal. Because the operator is composed of many components, 
+	 *         fewer bits will improve performance. 
+	 *
 	 *  @constructor
 	 *  @extends {Tone}
-	 *  @param {number=} [thresh = -40] the threshold in Decibels
-	 *  @param {number=} [attackTime = 0.1] the follower's attacktime
-	 *  @param {number=} [releaseTime = 0.1] the follower's release time
+	 *  @param {number} modulus the modolus to apply
+	 *  @param {number=} bits    optionally set the maximum bits the incoming signal can have. 
+	 *                           defaults to 4 meaning that incoming values must be in the range
+	 *                           0-32. (2^4 = 32);
 	 */
-	Tone.Gate = function(thresh, attackTime, releaseTime){
+	Tone.Modulo = function(modulus, bits){
+
 		Tone.call(this);
 
-		//default values
-		thresh = this.defaultArg(thresh, -40);
-		attackTime = this.defaultArg(attackTime, 0.1);
-		releaseTime = this.defaultArg(releaseTime, 0.2);
+		bits = this.defaultArg(bits, 4);
 
 		/**
-		 *  @type {Tone.Follower}
+		 *  the array of Modulus Subroutine objects
+		 *  @type {Array.&lt;ModulusSubroutine>}
 		 *  @private
 		 */
-		this._follower = new Tone.Follower(attackTime, releaseTime);
+		this._modChain = [];
 
-		/**
-		 *  @type {Tone.GreaterThan}
-		 *  @private
-		 */
-		this._gt = new Tone.GreaterThan(this.dbToGain(thresh));
+		//create all of the subroutines
+		for (var i = bits - 1; i >= 0; i--){
+			var mod = new ModuloSubroutine(modulus, Math.pow(2, i));
+			this._modChain.push(mod);
+		}
 
-		//the connections
-		this.chain(this.input, this.output);
-		//the control signal
-		this.chain(this.input, this._gt, this._follower, this.output.gain);
+		//connect them up
+		this.input.connect(this._modChain[0]);
+		this.chain.apply(this, this._modChain);
+		this._modChain[bits - 1].connect(this.output);
 	};
 
-	Tone.extend(Tone.Gate);
+	Tone.extend(Tone.Modulo);
 
-	/**
-	 *  set the gating threshold
-	 *  @param {number} thresh the gating threshold
-	 */
-	Tone.Gate.prototype.setThreshold = function(thresh){
-		this._gt.setValue(this.dbToGain(thresh));
-	};
-
-	/**
-	 *  set attack time of the follower
-	 *  @param {Tone.Time} attackTime
-	 */
-	Tone.Gate.prototype.setAttack = function(attackTime){
-		this._follower.setAttack(attackTime);
-	};
-
-	/**
-	 *  set attack time of the follower
-	 *  @param {Tone.Time} releaseTime
-	 */
-	Tone.Gate.prototype.setRelease = function(releaseTime){
-		this._follower.setRelease(releaseTime);
-	};
-
-	/**
-	 *  dispose
-	 */
-	Tone.Gate.prototype.dispose = function(){
+	Tone.Modulo.prototype.dispose = function(){
 		Tone.prototype.dispose.call(this);
-		this._follower.dispose();
-		this._gt.dispose();
-		this._follower = null;
-		this._gt = null;
+		for (var i = 0; i &lt; this._modChain.length; i++) {
+			this._modChain[i].dispose();
+			this._modChain[i] = null;
+		}
+		this._modChain = null;
 	};
 
-	return Tone.Gate;
+	/**
+	 *  @class applies a modolus at a single bit depth. 
+	 *         uses this operation: http://stackoverflow.com/a/14842954
+	 *
+	 *  
+	 *  @internal helper class for modulo
+	 *  @constructor
+	 *  @extends {Tone}
+	 */
+	var ModuloSubroutine = function(modulus, multiple){
+
+		Tone.call(this);
+
+		var val = modulus * multiple;
+
+		/**
+		 *  @type {Tone.LessThan}
+		 *  @private
+		 */
+		this._lt = new Tone.LessThan(val);
+
+		/**
+		 *  @private
+		 *  @type {Tone.Not}
+		 */
+		this._not = new Tone.Not();
+
+		/**
+		 *  @private
+		 *  @type {Tone.Add}
+		 */
+		this._sub = new Tone.Add(-val);
+
+		/**
+		 *  @private
+		 *  @type {Tone.Select}
+		 */
+		this._select = new Tone.Select(2);
+
+		//connections
+		this.chain(this.input, this._lt, this._not, this._select.gate);
+		this.input.connect(this._sub);
+		this._sub.connect(this._select, 0, 1);
+		this.input.connect(this._select, 0, 0);
+		this._select.connect(this.output);
+	};
+
+	Tone.extend(ModuloSubroutine);
+
+	 /**
+	  *  internal class clean up
+	  */
+	ModuloSubroutine.prototype.dispose = function(){
+		this._lt.dispose();
+		this._not.dispose();
+		this._sub.dispose();
+		this._select.dispose();
+		this._lt = null;
+		this._not = null;
+		this._sub = null;
+		this._select = null;
+	};
+
+	return Tone.Modulo;
 });</pre>
         </article>
     </section>

@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Tone.js Class: PingPongDelay</title>
+	<title>Tone.js Class: Modulo</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -281,18 +281,19 @@
 					
 
 
-	<h1 class="page-title">Class: PingPongDelay</h1>
+	<h1 class="page-title">Class: Modulo</h1>
 <section>
 
 <header>
     <h2>
         <span class="ancestors"><a href="Tone.html">Tone</a>.</span>
     
-    PingPongDelay
+    Modulo
     </h2>
     
-        <div class="class-description"><p>PingPongDelay is a dual delay effect where the echo is heard
-         first in one channel and next in the opposite channel</p></div>
+        <div class="class-description"><p>Signal-rate modolu operator. Specify the modulus and the 
+        number of bits of the incoming signal. Because the operator is composed of many components, 
+        fewer bits will improve performance.</p></div>
     
 </header>
 
@@ -303,8 +304,8 @@
     
         
 <dt>
-    <h4 class="name" id="PingPongDelay">
-        <span class="type-signature"></span>new PingPongDelay<span class="signature">(delayTime)</span><span class="type-signature"></span>
+    <h4 class="name" id="Modulo">
+        <span class="type-signature"></span>new Modulo<span class="signature">(modulus, <span class="optional">bits</span>)</span><span class="type-signature"></span>
         
     </h4>
     
@@ -332,6 +333,8 @@
 		<th>Type</th>
 
 		
+		<th>Argument</th>
+		
 
 		
 
@@ -344,26 +347,66 @@
 
         <tr>
             
-                <td class="name"><code>delayTime</code></td>
+                <td class="name"><code>modulus</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Tone.Time</span>
-|
-
-<span class="param-type">Object</span>
+<span class="param-type">number</span>
 
 
             
             </td>
 
             
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
 
             
 
-            <td class="description last"><p>is the interval between consecutive echos</p></td>
+            <td class="description last"><p>the modolus to apply</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>bits</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>optionally set the maximum bits the incoming signal can have. 
+                          defaults to 4 meaning that incoming values must be in the range
+                          0-32. (2^4 = 32);</p></td>
         </tr>
 
 	
@@ -395,7 +438,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="PingPongDelay.js.html">effect/PingPongDelay.js</a>, <a href="PingPongDelay.js.html#sunlight-1-line-14">line 14</a>
+        <a href="Modulo.js.html">signal/Modulo.js</a>, <a href="Modulo.js.html#sunlight-1-line-17">line 17</a>
     </li></ul></dd>
     
 
@@ -427,7 +470,7 @@
         <h3 class="subsection-title">Extends</h3>
 
         <ul>
-            <li><a href="Tone.StereoXFeedbackEffect.html">Tone.StereoXFeedbackEffect</a></li>
+            <li><a href="Tone.html">Tone</a></li>
         </ul>
     
 
@@ -443,66 +486,6 @@
         <h3 class="subsection-title">Members</h3>
 
         <dl>
-            
-<dt>
-    <h4 class="name" id="defaults"><span class="type-signature">&lt;static> </span>defaults<span class="type-signature"> :Object</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type">Object</span>
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="PingPongDelay.js.html">effect/PingPongDelay.js</a>, <a href="PingPongDelay.js.html#sunlight-1-line-62">line 62</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-    
-    
-</dd>
-
-        
             
 <dt>
     <h4 class="name" id="context"><span class="type-signature"></span>context<span class="type-signature"> :AudioContext</span></h4>
@@ -557,346 +540,6 @@
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="Tone.js.html">core/Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-158">line 158</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="delayTime"><span class="type-signature"></span>delayTime<span class="type-signature"> :<a href="Tone.Signal.html">Tone.Signal</a></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        <p>the delay time signal</p>
-    </div>
-    
-    
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type"><a href="Tone.Signal.html">Tone.Signal</a></span>
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="PingPongDelay.js.html">effect/PingPongDelay.js</a>, <a href="PingPongDelay.js.html#sunlight-1-line-37">line 37</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="dryWet"><span class="type-signature"></span>dryWet<span class="type-signature"> :<a href="Tone.DryWet.html">Tone.DryWet</a></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        <p>the drywet knob to control the amount of effect</p>
-    </div>
-    
-    
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type"><a href="Tone.DryWet.html">Tone.DryWet</a></span>
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="dummy"><li>
-        <a href="Tone.Effect.html#dryWet">Tone.Effect#dryWet</a>
-    </li></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Effect.js.html">effect/Effect.js</a>, <a href="Effect.js.html#sunlight-1-line-27">line 27</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="effectReturn"><span class="type-signature"></span>effectReturn<span class="type-signature"> :GainNode</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        <p>connect the output of the effect to the effectReturn</p>
-    </div>
-    
-    
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type">GainNode</span>
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="dummy"><li>
-        <a href="Tone.Effect.html#effectReturn">Tone.Effect#effectReturn</a>
-    </li></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Effect.js.html">effect/Effect.js</a>, <a href="Effect.js.html#sunlight-1-line-41">line 41</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="effectSend"><span class="type-signature"></span>effectSend<span class="type-signature"> :GainNode</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        <p>connect the effectSend to the input of hte effect</p>
-    </div>
-    
-    
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type">GainNode</span>
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="dummy"><li>
-        <a href="Tone.Effect.html#effectSend">Tone.Effect#effectSend</a>
-    </li></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Effect.js.html">effect/Effect.js</a>, <a href="Effect.js.html#sunlight-1-line-34">line 34</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="feedback"><span class="type-signature"></span>feedback<span class="type-signature"> :<a href="Tone.Signal.html">Tone.Signal</a></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        <p>controls the amount of feedback</p>
-    </div>
-    
-    
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type"><a href="Tone.Signal.html">Tone.Signal</a></span>
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="dummy"><li>
-        <a href="Tone.StereoXFeedbackEffect.html#feedback">Tone.StereoXFeedbackEffect#feedback</a>
-    </li></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="StereoXFeedbackEffect.js.html">effect/StereoXFeedbackEffect.js</a>, <a href="StereoXFeedbackEffect.js.html#sunlight-1-line-22">line 22</a>
     </li></ul></dd>
     
 
@@ -1072,78 +715,6 @@
             
         
             
-            
-<dt>
-    <h4 class="name" id="dispose">
-        <span class="type-signature"></span>dispose<span class="signature">()</span><span class="type-signature"></span>
-        
-    </h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>clean up</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="PingPongDelay.js.html">effect/PingPongDelay.js</a>, <a href="PingPongDelay.js.html#sunlight-1-line-87">line 87</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-            
         
             
         
@@ -1169,264 +740,6 @@
         
             
         
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-            
-<dt>
-    <h4 class="name" id="set">
-        <span class="type-signature"></span>set<span class="signature">(params)</span><span class="type-signature"></span>
-        
-    </h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>set all of the parameters with an object</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>params</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-    
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="PingPongDelay.js.html">effect/PingPongDelay.js</a>, <a href="PingPongDelay.js.html#sunlight-1-line-79">line 79</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-            
-        
-            
-            
-<dt>
-    <h4 class="name" id="setDelayTime">
-        <span class="type-signature"></span>setDelayTime<span class="signature">(delayTime)</span><span class="type-signature"></span>
-        
-    </h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>setDelayTime</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>delayTime</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Tone.Time</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-    
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="PingPongDelay.js.html">effect/PingPongDelay.js</a>, <a href="PingPongDelay.js.html#sunlight-1-line-71">line 71</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
             
         
             
@@ -1452,89 +765,6 @@
         <!-- THEN INHERITED METHODS -->
         <h4 class="subsection-title">Inherited Methods</h4>
         <dl>
-            
-            
-<dt>
-    <h4 class="name" id="bypass">
-        <span class="type-signature"></span>bypass<span class="signature">()</span><span class="type-signature"></span>
-        
-        <span class="inherited-from">
-            <a href="Tone.Effect.html#bypass">Tone.Effect</a>
-        </span>
-        
-    </h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>bypass the effect</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="dummy"><li>
-        <a href="Tone.Effect.html#bypass">Tone.Effect#bypass</a>
-    </li></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Effect.js.html">effect/Effect.js</a>, <a href="Effect.js.html#sunlight-1-line-96">line 96</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-            
-        
             
             
 <dt>
@@ -1869,138 +1099,6 @@
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="Tone.js.html">core/Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-178">line 178</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-            
-        
-            
-            
-<dt>
-    <h4 class="name" id="connectEffect">
-        <span class="type-signature"></span>connectEffect<span class="signature">(effect)</span><span class="type-signature"></span>
-        
-        <span class="inherited-from">
-            <a href="Tone.Effect.html#connectEffect">Tone.Effect</a>
-        </span>
-        
-    </h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>chains the effect in between the effectSend and effectReturn</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>effect</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="Tone.html">Tone</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-    
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="dummy"><li>
-        <a href="Tone.Effect.html#connectEffect">Tone.Effect#connectEffect</a>
-    </li></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Effect.js.html">effect/Effect.js</a>, <a href="Effect.js.html#sunlight-1-line-104">line 104</a>
     </li></ul></dd>
     
 
@@ -2440,6 +1538,87 @@
 
             
         
+            
+            
+<dt>
+    <h4 class="name" id="dispose">
+        <span class="type-signature"></span>dispose<span class="signature">()</span><span class="type-signature"></span>
+        
+        <span class="inherited-from">
+            <a href="Tone.html#dispose">Tone</a>
+        </span>
+        
+    </h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>a dispose method</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="Tone.html#dispose">Tone#dispose</a>
+    </li></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Tone.js.html">core/Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-373">line 373</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
             
         
             
@@ -5518,670 +4697,6 @@
             
         
             
-        
-            
-        
-            
-            
-<dt>
-    <h4 class="name" id="setDry">
-        <span class="type-signature"></span>setDry<span class="signature">(dryness, <span class="optional">rampTime</span>)</span><span class="type-signature"></span>
-        
-        <span class="inherited-from">
-            <a href="Tone.Effect.html#setDry">Tone.Effect</a>
-        </span>
-        
-    </h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>setDry adjusts the dry / wet balance
-dryness is 0 (100% wet) to 1 (100% dry)</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-		<th>Argument</th>
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>dryness</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>rampTime</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Tone.Time</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-    
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="dummy"><li>
-        <a href="Tone.Effect.html#setDry">Tone.Effect#setDry</a>
-    </li></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Effect.js.html">effect/Effect.js</a>, <a href="Effect.js.html#sunlight-1-line-69">line 69</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-            
-        
-            
-            
-<dt>
-    <h4 class="name" id="setFeedback">
-        <span class="type-signature"></span>setFeedback<span class="signature">(value, <span class="optional">rampTime</span>)</span><span class="type-signature"></span>
-        
-        <span class="inherited-from">
-            <a href="Tone.FeedbackEffect.html#setFeedback">Tone.FeedbackEffect</a>
-        </span>
-        
-    </h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>set the feedback amount</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-		<th>Argument</th>
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>value</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>the amount of feedback</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>rampTime</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Tone.Time</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>(optionally) set the ramp time it takes 
-                              to reach the new feedback value</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-    
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="dummy"><li>
-        <a href="Tone.FeedbackEffect.html#setFeedback">Tone.FeedbackEffect#setFeedback</a>
-    </li></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="FeedbackEffect.js.html">effect/FeedbackEffect.js</a>, <a href="FeedbackEffect.js.html#sunlight-1-line-61">line 61</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-            
-        
-            
-            
-<dt>
-    <h4 class="name" id="setPreset">
-        <span class="type-signature"></span>setPreset<span class="signature">(presetName)</span><span class="type-signature"></span>
-        
-        <span class="inherited-from">
-            <a href="Tone.Effect.html#setPreset">Tone.Effect</a>
-        </span>
-        
-    </h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>set the preset if it exists</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>presetName</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>the name of the preset</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-    
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="dummy"><li>
-        <a href="Tone.Effect.html#setPreset">Tone.Effect#setPreset</a>
-    </li></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Effect.js.html">effect/Effect.js</a>, <a href="Effect.js.html#sunlight-1-line-112">line 112</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-            
-        
-            
-            
-<dt>
-    <h4 class="name" id="setWet">
-        <span class="type-signature"></span>setWet<span class="signature">(wetness, <span class="optional">rampTime</span>)</span><span class="type-signature"></span>
-        
-        <span class="inherited-from">
-            <a href="Tone.Effect.html#setWet">Tone.Effect</a>
-        </span>
-        
-    </h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>setWet also adjusts the dry / wet balance
-wetVal is 0 (100% dry) to 1 (100% wet)</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-		<th>Argument</th>
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>wetness</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>rampTime</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Tone.Time</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-    
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="dummy"><li>
-        <a href="Tone.Effect.html#setWet">Tone.Effect#setWet</a>
-    </li></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Effect.js.html">effect/Effect.js</a>, <a href="Effect.js.html#sunlight-1-line-80">line 80</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-            
-        
-            
             
 <dt>
     <h4 class="name" id="ticksToSeconds">
@@ -7231,7 +5746,7 @@ wetVal is 0 (100% dry) to 1 (100% wet)</p>
 					<br />
 					
 		<span class="jsdoc-message">
-		Documentation generated on Tue Sep 09 2014 13:00:09 GMT-0400 (EDT).
+		Documentation generated on Tue Sep 09 2014 13:00:05 GMT-0400 (EDT).
 		</span>
 				</footer>
 			</div>

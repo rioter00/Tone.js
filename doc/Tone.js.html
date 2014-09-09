@@ -149,6 +149,10 @@
 						</li>
 						
 						<li>
+							<a href="Tone.Modulo.html">Modulo</a>
+						</li>
+						
+						<li>
 							<a href="Tone.Monophonic.html">Monophonic</a>
 						</li>
 						
@@ -225,7 +229,7 @@
 						</li>
 						
 						<li>
-							<a href="Tone.Selector.html">Selector</a>
+							<a href="Tone.Select.html">Select</a>
 						</li>
 						
 						<li>
@@ -403,9 +407,7 @@ define("Tone/core/Tone", [], function(){
 	///////////////////////////////////////////////////////////////////////////
 
 	/**
-	 *  Tone is the baseclass of all ToneNodes
-	 *  
-	 *  From Tone, children inherit timing and math which is used throughout Tone.js
+	 *  @class  Tone is the baseclass of all Tone Modules. 
 	 *  
 	 *  @constructor
 	 *  @alias Tone
@@ -431,6 +433,7 @@ define("Tone/core/Tone", [], function(){
 
 	/**
 	 *  A static pointer to the audio context
+	 *  @static
 	 *  @type {AudioContext}
 	 */
 	Tone.context = audioContext;
@@ -438,7 +441,6 @@ define("Tone/core/Tone", [], function(){
 	/**
 	 *  A static pointer to the audio context
 	 *  @type {AudioContext}
-	 *  @static
 	 */
 	Tone.prototype.context = Tone.context;
 
@@ -832,7 +834,7 @@ define("Tone/core/Tone", [], function(){
 	/**
 	 *  invoke this callback when a new context is added
 	 *  will be invoked initially with the first context
-	 *  @internal 
+	 *  @private 
 	 *  @static
 	 *  @param {function(AudioContext)} callback the callback to be invoked
 	 *                                           with the audio context
@@ -930,7 +932,7 @@ define("Tone/core/Tone", [], function(){
 					<br />
 					
 		<span class="jsdoc-message">
-		Documentation generated on Sat Sep 06 2014 18:15:51 GMT-0400 (EDT).
+		Documentation generated on Tue Sep 09 2014 12:59:51 GMT-0400 (EDT).
 		</span>
 				</footer>
 			</div>

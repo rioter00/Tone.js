@@ -149,6 +149,10 @@
 						</li>
 						
 						<li>
+							<a href="Tone.Modulo.html">Modulo</a>
+						</li>
+						
+						<li>
 							<a href="Tone.Monophonic.html">Monophonic</a>
 						</li>
 						
@@ -225,7 +229,7 @@
 						</li>
 						
 						<li>
-							<a href="Tone.Selector.html">Selector</a>
+							<a href="Tone.Select.html">Select</a>
 						</li>
 						
 						<li>
@@ -281,7 +285,7 @@
     
     <section>
         <article>
-            <pre class="sunlight-highlight-javascript linenums">define(["Tone/core/Tone", "Tone/signal/Selector", "Tone/signal/Negate", "Tone/signal/LessThan", "Tone/signal/Signal"], 
+            <pre class="sunlight-highlight-javascript linenums">define(["Tone/core/Tone", "Tone/signal/Select", "Tone/signal/Negate", "Tone/signal/LessThan", "Tone/signal/Signal"], 
 function(Tone){
 
 	"use strict";
@@ -302,10 +306,10 @@ function(Tone){
 		this._ltz = new Tone.LessThan(0);
 
 		/**
-		 *  @type {Tone.Selector}
+		 *  @type {Tone.Select}
 		 *  @private
 		 */
-		this._switch = new Tone.Selector(2);
+		this._switch = new Tone.Select(2);
 		
 		/**
 		 *  @type {Tone.Negate}
@@ -369,7 +373,7 @@ function(Tone){
 					<br />
 					
 		<span class="jsdoc-message">
-		Documentation generated on Sat Sep 06 2014 18:15:51 GMT-0400 (EDT).
+		Documentation generated on Tue Sep 09 2014 12:59:51 GMT-0400 (EDT).
 		</span>
 				</footer>
 			</div>

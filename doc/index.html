@@ -149,6 +149,10 @@
 						</li>
 						
 						<li>
+							<a href="Tone.Modulo.html">Modulo</a>
+						</li>
+						
+						<li>
 							<a href="Tone.Monophonic.html">Monophonic</a>
 						</li>
 						
@@ -225,7 +229,7 @@
 						</li>
 						
 						<li>
-							<a href="Tone.Selector.html">Selector</a>
+							<a href="Tone.Select.html">Select</a>
 						</li>
 						
 						<li>
@@ -298,7 +302,9 @@
 
     <section>
         <article><h1>Tone.js</h1>
-<p>A Web Audio framework for synthesis, playback, timing and effects. </p>
+<p>Tone.js is a Web Audio framework for creating music in the browser. On the application-level, the library is modeled after a DAW (digital audio workstation) with a global transport for timing events, sends and receives, and a master output. Tone also comes with a number of instruments and effects with named presets to get you up and running quickly. Additionally, Tone provides a wealth of building blocks and DSP modules to build your own synths, effects, and control signals while using nearly no ScriptProcessorNodes for the best performance and latency on desktop and mobile browsers. </p>
+<p><a href="http://tonenotone.github.io/Tone.js/examples/">Examples</a></p>
+<p><a href="http://tonenotone.github.io/Tone.js/doc/Tone.html">API</a></p>
 <h1>Installation</h1>
 <p>RequireJS is the recommended way to use Tone.js but it can also be used just as well without it. </p>
 <h3>RequireJS</h3>
@@ -408,7 +414,7 @@ Tone.Transport.start();</code></pre>
 <li><a href="http://tonenotone.github.io/Tone.js/doc/Tone.Split.html">Tone.Split</a></li>
 </ul>
 <h1>Signals</h1>
-<p>Like the underlying Web Audio API, Tone.js is built with audio-rate signal control over nearly everything. This is a powerful feature which allows for sample-accurate synchronization of multiple parameters with a single signal. Signals are built entirely without any ScriptProcessorNodes, so they do not introduce much latency and processing overhead. Instead, all signal math and logic let GainNodes and WaveShaperNodes do all of the work so that all processing is done in the underlying Assembly/C/C++ provided by the API. Signals are used extensively internally and are also useful for general DSP and control signal logic and transformations. </p>
+<p>Like the underlying Web Audio API, Tone.js is built with audio-rate signal control over nearly everything. This is a powerful feature which allows for sample-accurate synchronization of multiple parameters with a single signal. Signals are built entirely without the ScriptProcessorNode so they do not introduce much latency and processing overhead. Instead, all signal math and logic let GainNodes and WaveShaperNodes do all of the work so that all processing is done in the underlying Assembly/C/C++ provided by the API. Signals are used extensively internally and are also useful for general DSP and control signal logic and transformations. </p>
 <h3>Math</h3>
 <ul>
 <li><a href="http://tonenotone.github.io/Tone.js/doc/Tone.Abs.html">Tone.Abs</a></li>
@@ -416,6 +422,7 @@ Tone.Transport.start();</code></pre>
 <li><a href="http://tonenotone.github.io/Tone.js/doc/Tone.Clip.html">Tone.Clip</a></li>
 <li><a href="http://tonenotone.github.io/Tone.js/doc/Tone.Max.html">Tone.Max</a></li>
 <li><a href="http://tonenotone.github.io/Tone.js/doc/Tone.Min.html">Tone.Min</a></li>
+<li><a href="http://tonenotone.github.io/Tone.js/doc/Tone.Modulo.html">Tone.Modulo</a></li>
 <li><a href="http://tonenotone.github.io/Tone.js/doc/Tone.Multiply.html">Tone.Multiply</a></li>
 <li><a href="http://tonenotone.github.io/Tone.js/doc/Tone.Negate.html">Tone.Negate</a></li>
 <li><a href="http://tonenotone.github.io/Tone.js/doc/Tone.Scale.html">Tone.Scale</a></li>
@@ -435,7 +442,7 @@ Tone.Transport.start();</code></pre>
 <p>Signal can also be routed and gated for maximum flexibility. </p>
 <ul>
 <li><a href="http://tonenotone.github.io/Tone.js/doc/Tone.Route.html">Tone.Route</a></li>
-<li><a href="http://tonenotone.github.io/Tone.js/doc/Tone.Selector.html">Tone.Selector</a></li>
+<li><a href="http://tonenotone.github.io/Tone.js/doc/Tone.Select.html">Tone.Select</a></li>
 <li><a href="http://tonenotone.github.io/Tone.js/doc/Tone.Switch.html">Tone.Switch</a></li>
 </ul>
 <h1>Instruments</h1>
@@ -450,14 +457,19 @@ Tone.Transport.start();</code></pre>
 <p>Each of the instruments also has a number of presets which can be found in the Tone/instrument/presets folder. These named synthesizer configurations are a starting point for exploring the features of each synthesizer. </p>
 <h1>Effects</h1>
 <p>Tone.js also has a few stereo and mono effects which also have their own presets. </p>
+<ul>
+<li><a href="http://tonenotone.github.io/Tone.js/doc/Tone.AutoPanner.html">Tone.AutoPanner</a></li>
+<li><a href="http://tonenotone.github.io/Tone.js/doc/Tone.AutoWah.html">Tone.AutoWah</a></li>
+<li><a href="http://tonenotone.github.io/Tone.js/doc/Tone.BitCrusher.html">Tone.BitCrusher</a></li>
+<li><a href="http://tonenotone.github.io/Tone.js/doc/Tone.Chorus.html">Tone.Chorus</a></li>
+<li><a href="http://tonenotone.github.io/Tone.js/doc/Tone.FeedbackDelay.html">Tone.FeedbackDelay</a></li>
+<li><a href="http://tonenotone.github.io/Tone.js/doc/Tone.Phaser.html">Tone.Phaser</a></li>
+<li><a href="http://tonenotone.github.io/Tone.js/doc/Tone.PingPongDelay.html">Tone.PingPongDelay</a></li>
+</ul>
 <h1>Performance</h1>
 <p>Tone.js uses very few ScriptProcessorNodes. Nearly all of the ToneNodes find a native Web Audio component workaround, making 
 extensive use of the GainNode and WaveShaperNode especially. While the ScripProcessorNode is extremely powerful, it 
-introduces a lot of latency and the potential for glitches more than any other node. The </p>
-<h1>Examples</h1>
-<p>Examples can be found <a href="http://tonenotone.github.io/Tone.js/examples/">here</a>.</p>
-<h1>Documentation</h1>
-<p>JSDocs are <a href="http://tonenotone.github.io/Tone.js/doc/">here</a>.</p>
+introduces a lot of latency and the potential for glitches more than any other node.  </p>
 <h1>References and Inspiration</h1>
 <ul>
 <li><a href="https://github.com/Dinahmoe/tuna">Tuna.js</a></li>
@@ -484,7 +496,7 @@ introduces a lot of latency and the potential for glitches more than any other n
 					<br />
 					
 		<span class="jsdoc-message">
-		Documentation generated on Sat Sep 06 2014 18:15:51 GMT-0400 (EDT).
+		Documentation generated on Tue Sep 09 2014 12:59:51 GMT-0400 (EDT).
 		</span>
 				</footer>
 			</div>

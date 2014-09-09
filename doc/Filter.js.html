@@ -149,6 +149,10 @@
 						</li>
 						
 						<li>
+							<a href="Tone.Modulo.html">Modulo</a>
+						</li>
+						
+						<li>
 							<a href="Tone.Monophonic.html">Monophonic</a>
 						</li>
 						
@@ -225,7 +229,7 @@
 						</li>
 						
 						<li>
-							<a href="Tone.Selector.html">Selector</a>
+							<a href="Tone.Select.html">Select</a>
 						</li>
 						
 						<li>
@@ -317,6 +321,12 @@
 		this.frequency = new Tone.Signal(options.frequency);
 
 		/**
+		 *  the detune parameter
+		 *  @type {Tone.Signal}
+		 */
+		this.detune = new Tone.Signal(0);
+
+		/**
 		 *  the gain of the filter, only used in certain filter types
 		 *  @type {AudioParam}
 		 */
@@ -361,6 +371,7 @@
 	 */
 	Tone.Filter.prototype.set = function(params){
 		if (!this.isUndef(params.type)) this.setType(params.type);
+		if (!this.isUndef(params.detune)) this.detune.setValue(params.detune);
 		if (!this.isUndef(params.frequency)) this.frequency.setValue(params.frequency);
 		if (!this.isUndef(params.Q)) this.Q.setValue(params.Q);
 		if (!this.isUndef(params.gain)) this.gain.setValue(params.gain);
@@ -426,6 +437,7 @@
 			var filter = this.context.createBiquadFilter();
 			filter.type = this._type;
 			this.frequency.connect(filter.frequency);
+			this.detune.connect(filter.detune);
 			this.Q.connect(filter.Q);
 			this.gain.connect(filter.gain);
 			this._filters[count] = filter;
@@ -439,6 +451,7 @@
 	 *  clean up
 	 */
 	Tone.Filter.prototype.dispose = function(){
+		Tone.prototype.dispose.call(this);
 		for (var i = 0; i &lt; this._filters.length; i++) {
 			this._filters[i].disconnect();
 			this._filters[i] = null;
@@ -473,7 +486,7 @@
 					<br />
 					
 		<span class="jsdoc-message">
-		Documentation generated on Sat Sep 06 2014 18:15:51 GMT-0400 (EDT).
+		Documentation generated on Tue Sep 09 2014 12:59:51 GMT-0400 (EDT).
 		</span>
 				</footer>
 			</div>

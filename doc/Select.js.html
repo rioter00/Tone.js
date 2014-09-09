@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Tone.js Source: component/Gate.js</title>
+	<title>Tone.js Source: signal/Select.js</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -281,88 +281,131 @@
 					
 
 
-		<h1 class="page-title">Source: component/Gate.js</h1>
+		<h1 class="page-title">Source: signal/Select.js</h1>
     
     <section>
         <article>
-            <pre class="sunlight-highlight-javascript linenums">define(["Tone/core/Tone", "Tone/component/Follower", "Tone/signal/GreaterThan"], function(Tone){
+            <pre class="sunlight-highlight-javascript linenums">define(["Tone/core/Tone", "Tone/signal/Equal", "Tone/signal/Signal"], function(Tone){
 
 	"use strict";
 
 	/**
-	 *  @class  Only pass signal through when it's signal exceeds the
-	 *          specified threshold.
-	 *  
+	 *  @class Select between any number of inputs, sending the one 
+	 *         selected by the gate signal to the output
+	 *
+	 *
 	 *  @constructor
 	 *  @extends {Tone}
-	 *  @param {number=} [thresh = -40] the threshold in Decibels
-	 *  @param {number=} [attackTime = 0.1] the follower's attacktime
-	 *  @param {number=} [releaseTime = 0.1] the follower's release time
+	 *  @param {number=} [sourceCount=2] the number of inputs the switch accepts
 	 */
-	Tone.Gate = function(thresh, attackTime, releaseTime){
-		Tone.call(this);
+	Tone.Select = function(sourceCount){
 
-		//default values
-		thresh = this.defaultArg(thresh, -40);
-		attackTime = this.defaultArg(attackTime, 0.1);
-		releaseTime = this.defaultArg(releaseTime, 0.2);
+		sourceCount = this.defaultArg(sourceCount, 2);
 
 		/**
-		 *  @type {Tone.Follower}
-		 *  @private
+		 *  the array of inputs
+		 *  @type {Array&lt;SelectGate>}
 		 */
-		this._follower = new Tone.Follower(attackTime, releaseTime);
+		this.input = new Array(sourceCount);
 
 		/**
-		 *  @type {Tone.GreaterThan}
-		 *  @private
+		 *  the output
+		 *  @type {GainNode}
 		 */
-		this._gt = new Tone.GreaterThan(this.dbToGain(thresh));
+		this.output = this.context.createGain();
 
-		//the connections
-		this.chain(this.input, this.output);
-		//the control signal
-		this.chain(this.input, this._gt, this._follower, this.output.gain);
+		/**
+		 *  the control signal
+		 *  @type {Tone.Signal}
+		 */
+		this.gate = new Tone.Signal(0);
+
+		//make all the inputs and connect them
+		for (var i = 0; i &lt; sourceCount; i++){
+			var switchGate = new SelectGate(i);
+			this.input[i] = switchGate;
+			this.gate.connect(switchGate.selecter);
+			switchGate.connect(this.output);
+		}
 	};
 
-	Tone.extend(Tone.Gate);
+	Tone.extend(Tone.Select);
 
 	/**
-	 *  set the gating threshold
-	 *  @param {number} thresh the gating threshold
+	 *  open one of the inputs and close the other
+	 *  @param {number=} [which=0] open one of the gates (closes the other)
+	 *  @param {Tone.Time} time the time when the switch will open
 	 */
-	Tone.Gate.prototype.setThreshold = function(thresh){
-		this._gt.setValue(this.dbToGain(thresh));
-	};
-
-	/**
-	 *  set attack time of the follower
-	 *  @param {Tone.Time} attackTime
-	 */
-	Tone.Gate.prototype.setAttack = function(attackTime){
-		this._follower.setAttack(attackTime);
-	};
-
-	/**
-	 *  set attack time of the follower
-	 *  @param {Tone.Time} releaseTime
-	 */
-	Tone.Gate.prototype.setRelease = function(releaseTime){
-		this._follower.setRelease(releaseTime);
+	Tone.Select.prototype.select = function(which, time){
+		//make sure it's an integer
+		which = Math.floor(which);
+		this.gate.setValueAtTime(which, this.toSeconds(time));
 	};
 
 	/**
-	 *  dispose
+	 *  borrows the method from {@link Tone.Signal}
+	 *  
+	 *  @function
 	 */
-	Tone.Gate.prototype.dispose = function(){
+	Tone.Select.prototype.connect = Tone.Signal.prototype.connect;
+
+	/**
+	 *  dispose method
+	 */
+	Tone.Select.prototype.dispose = function(){
+		this.gate.dispose();
+		for (var i = 0; i &lt; this.input.length; i++){
+			this.input[i].dispose();
+			this.input[i] = null;
+		}
 		Tone.prototype.dispose.call(this);
-		this._follower.dispose();
-		this._gt.dispose();
-		this._follower = null;
-		this._gt = null;
+		this.gate = null;
+	}; 
+
+	////////////START HELPER////////////
+
+	/**
+	 *  helper class for Tone.Select representing a single gate
+	 *  @constructor
+	 *  @extends {Tone}
+	 *  @internal only used by Tone.Select
+	 */
+	var SelectGate = function(num){
+
+		/**
+		 *  the selector
+		 *  @type {Tone.Equal}
+		 */
+		this.selecter = new Tone.Equal(num);
+
+		/**
+		 *  the gate
+		 *  @type {GainNode}
+		 */
+		this.gate = this.input = this.output = this.context.createGain();
+
+		//connect the selecter to the gate gain
+		this.selecter.connect(this.gate.gain);
 	};
 
-	return Tone.Gate;
+	Tone.extend(SelectGate);
+
+	/**
+	 *  clean up
+	 *  @private
+	 */
+	SelectGate.prototype.dispose = function(){
+		Tone.prototype.dispose.call(this);
+		this.selecter.dispose();
+		this.gate.disconnect();
+		this.selecter = null;
+		this.gate = null;
+	};
+
+	////////////END HELPER////////////
+
+	//return Tone.Select
+	return Tone.Select;
 });</pre>
         </article>
     </section>
