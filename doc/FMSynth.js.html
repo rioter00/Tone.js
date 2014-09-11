@@ -264,6 +264,10 @@
 							<a href="Tone.Threshold.html">Threshold</a>
 						</li>
 						
+						<li>
+							<a href="Tone.Transport.html">Transport</a>
+						</li>
+						
 
 					</ul>
 				</li>
@@ -464,7 +468,7 @@ function(Tone){
 	/**
 	 *  clean up
 	 */
-	Tone.FMSynth.dispose = function(){
+	Tone.FMSynth.prototype.dispose = function(){
 		Tone.Monophonic.prototype.dispose.call(this);
 		this.carrier.dispose();
 		this.modulator.dispose();
@@ -495,13 +499,8 @@ function(Tone){
 				<footer>
 					
 					
-		<span class="copyright">
-		Tone No Tone Copyright © 2014.
-		</span>
-					<br />
-					
 		<span class="jsdoc-message">
-		Documentation generated on Tue Sep 09 2014 12:59:51 GMT-0400 (EDT).
+		Documentation generated on Wed Sep 10 2014 22:45:41 GMT-0400 (EDT).
 		</span>
 				</footer>
 			</div>

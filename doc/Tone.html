@@ -264,6 +264,10 @@
 							<a href="Tone.Threshold.html">Threshold</a>
 						</li>
 						
+						<li>
+							<a href="Tone.Transport.html">Transport</a>
+						</li>
+						
 
 					</ul>
 				</li>
@@ -550,6 +554,9 @@
             <dd></dd>
         
             <dt><a href="Tone.Threshold.html">Threshold</a></dt>
+            <dd></dd>
+        
+            <dt><a href="Tone.Transport.html">Transport</a></dt>
             <dd></dd>
         </dl>
     
@@ -3710,7 +3717,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Transport.js.html">core/Transport.js</a>, <a href="Transport.js.html#sunlight-1-line-726">line 726</a>
+        <a href="Transport.js.html">core/Transport.js</a>, <a href="Transport.js.html#sunlight-1-line-750">line 750</a>
     </li></ul></dd>
     
 
@@ -5017,7 +5024,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Transport.js.html">core/Transport.js</a>, <a href="Transport.js.html#sunlight-1-line-788">line 788</a>
+        <a href="Transport.js.html">core/Transport.js</a>, <a href="Transport.js.html#sunlight-1-line-812">line 812</a>
     </li></ul></dd>
     
 
@@ -5121,7 +5128,7 @@
             <td class="type">
             
                 
-<span class="param-type">Tone.Time</span>
+<span class="param-type"><a href="Tone.html#Time">Tone.Time</a></span>
 
 
             
@@ -5163,7 +5170,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Transport.js.html">core/Transport.js</a>, <a href="Transport.js.html#sunlight-1-line-826">line 826</a>
+        <a href="Transport.js.html">core/Transport.js</a>, <a href="Transport.js.html#sunlight-1-line-850">line 850</a>
     </li></ul></dd>
     
 
@@ -5489,7 +5496,7 @@
             <td class="type">
             
                 
-<span class="param-type">Tone.Time</span>
+<span class="param-type"><a href="Tone.html#Time">Tone.Time</a></span>
 
 
             
@@ -5687,7 +5694,7 @@
             <td class="type">
             
                 
-<span class="param-type">Tone.Time</span>
+<span class="param-type"><a href="Tone.html#Time">Tone.Time</a></span>
 
 
             
@@ -5771,7 +5778,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Transport.js.html">core/Transport.js</a>, <a href="Transport.js.html#sunlight-1-line-855">line 855</a>
+        <a href="Transport.js.html">core/Transport.js</a>, <a href="Transport.js.html#sunlight-1-line-879">line 879</a>
     </li></ul></dd>
     
 
@@ -5818,7 +5825,76 @@
             
         </dl>
         <!-- THEN INHERITED METHODS -->
-        <h4 class="subsection-title">Inherited Methods</h4>
+        
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
         <dl>
             
         
@@ -5891,6 +5967,92 @@
     
 
     
+        <h3 class="subsection-title">Type Definitions</h3>
+
+        <dl>
+                
+<dt>
+    <h4 class="name" id="Time">Time</h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Time can be descibed in a number of ways. 
+ Any Method which accepts Tone.Time as a parameter will accept: </p>
+<p> Numbers, which will be taken literally as the time (in seconds). </p>
+<p> Notation, (&quot;4n&quot;, &quot;8t&quot;) describes time in BPM and time signature relative values. </p>
+<p> Transport Time, (&quot;4:3:2&quot;) will also provide tempo and time signature relative times 
+ in the form BARS:QUARTERS:SIXTEENTHS.</p>
+<p> Frequency, (&quot;8hz&quot;) is converted to the length of the cycle in seconds.</p>
+<p> Now-Relative, (&quot;+1&quot;) prefix any of the above with &quot;+&quot; and it will be interpreted as 
+ &quot;the current time plus whatever expression follows&quot;.</p>
+<p> Expressions, (&quot;3:0 + 2 - (1m / 7)&quot;) any of the above can also be combined 
+ into a mathematical expression which will be evaluated to compute the desired time.</p>
+<p> No Argument, for methods which accept time, no argument will be interpreted as 
+ 0 seconds or &quot;now&quot; (i.e. the currentTime) depending on the context.</p>
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">number</span>
+|
+
+<span class="param-type">string</span>
+|
+
+<span class="param-type">undefined</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Transport.js.html">core/Transport.js</a>, <a href="Transport.js.html#sunlight-1-line-6">line 6</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+</dd>
+
+            </dl>
+    
 
     
 </article>
@@ -5906,13 +6068,8 @@
 				<footer>
 					
 					
-		<span class="copyright">
-		Tone No Tone Copyright © 2014.
-		</span>
-					<br />
-					
 		<span class="jsdoc-message">
-		Documentation generated on Tue Sep 09 2014 12:59:53 GMT-0400 (EDT).
+		Documentation generated on Wed Sep 10 2014 22:45:42 GMT-0400 (EDT).
 		</span>
 				</footer>
 			</div>
