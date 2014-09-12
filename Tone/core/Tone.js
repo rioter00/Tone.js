@@ -440,14 +440,14 @@ define("Tone/core/Tone", [], function(){
 	};
 
 	/**
-	 *  convert Tone.Time to seconds
+	 *  convert time to seconds
 	 *
 	 *  this is a simplified version which only handles numbers and 
 	 *  'now' relative numbers. If the Transport is included this 
 	 *  method is overridden to include many other features including 
 	 *  notationTime, Frequency, and transportTime
 	 *  
-	 *  @param  {Tone.Time} time 
+	 *  @param  {number=} time 
 	 *  @param {number=} now if passed in, this number will be 
 	 *                       used for all 'now' relative timings
 	 *  @return {number}   	seconds in the same timescale as the AudioContext
@@ -487,50 +487,6 @@ define("Tone/core/Tone", [], function(){
 	 */
 	Tone.prototype.secondsToFrequency = function(seconds){
 		return 1/seconds;
-	};
-
-	///////////////////////////////////////////////////////////////////////////
-	//	MUSIC NOTES
-	///////////////////////////////////////////////////////////////////////////
-
-	var noteToIndex = { "c" : 0, "c#" : 1, "db" : 1, "d" : 2, "d#" : 3, "eb" : 3, 
-		"e" : 4, "f" : 5, "f#" : 6, "gb" : 6, "g" : 7, "g#" : 8, "ab" : 8, 
-		"a" : 9, "a#" : 10, "bb" : 10, "b" : 11
-	};
-
-	var noteIndexToNote = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
-
-	var middleC = 261.6255653005986;
-
-	/**
-	 *  convert a note name to frequency (i.e. A4 to 440)
-	 *  @param  {string} note
-	 *  @return {number}         
-	 */
-	Tone.prototype.noteToFrequency = function(note){
-		//break apart the note by frequency and octave
-		var parts = note.split(/(\d+)/);
-		if (parts.length === 3){
-			var index = noteToIndex[parts[0].toLowerCase()];
-			var octave = parts[1];
-			var noteNumber = index + parseInt(octave, 10) * 12;
-			return Math.pow(2, (noteNumber - 48) / 12) * middleC;
-		} else {
-			return 0;
-		}
-	};
-
-	/**
-	 *  convert a note name (i.e. A4, C#5, etc to a frequency)
-	 *  @param  {number} freq
-	 *  @return {string}         
-	 */
-	Tone.prototype.frequencyToNote = function(freq){
-		var log = Math.log(freq / middleC) / Math.LN2;
-		var noteNumber = Math.round(12 * log) + 48;
-		var octave = Math.floor(noteNumber/12);
-		var noteName = noteIndexToNote[noteNumber % 12];
-		return noteName + octave.toString();
 	};
 
 	///////////////////////////////////////////////////////////////////////////
@@ -621,7 +577,7 @@ define("Tone/core/Tone", [], function(){
 		_silentNode.connect(audioContext.destination);
 	});
 
-	console.log("Tone.js r1-dev");
+	console.log("Tone.js r1");
 
 	return Tone;
 });
