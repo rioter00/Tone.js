@@ -129,6 +129,10 @@
 						</li>
 						
 						<li>
+							<a href="Tone.Master.html">Master</a>
+						</li>
+						
+						<li>
 							<a href="Tone.Max.html">Max</a>
 						</li>
 						
@@ -306,29 +310,30 @@
 
     <section>
         <article><h1>Tone.js</h1>
-<p>Tone.js is a Web Audio framework for creating music in the browser. On the application-level, the library is modeled after a DAW (digital audio workstation) with a global transport for timing events, sends and receives, and a master output. Tone also comes with a number of instruments and effects with named presets to get you up and running quickly. Additionally, Tone provides a wealth of building blocks and DSP modules to build your own synths, effects, and control signals while using nearly no ScriptProcessorNodes for the best performance and latency on desktop and mobile browsers. </p>
+<p>Tone.js is a Web Audio framework for creating interactive music in the browser. The architecture of Tone.js aims to be familiar to both musicians and audio programmers looking to create web-based audio applications. On the high-level, Tone offers common DAW (digital audio workstation) features like a global transport, prebuilt synths and effects, as well as presets for those synths and effects. For signal-processing programmers (coming from languages like Max/MSP), Tone provides a wealth of high performance, low latency building blocks and DSP modules to build your own synthesizers, effects, and complex control signals.</p>
 <p><a href="http://tonenotone.github.io/Tone.js/examples/">Examples</a></p>
 <p><a href="http://tonenotone.github.io/Tone.js/doc/Tone.html">API</a></p>
 <h1>Installation</h1>
 <p>RequireJS is the recommended way to use Tone.js but it can also be used just as well without it. </p>
+<h3>without RequireJS</h3>
+<p>Tone.js can also be used like any other script or library by dropping the <a href="https://raw.githubusercontent.com/TONEnoTONE/Tone.js/master/build/Tone.js">Tone.js Build</a> into the <head> of your page. A global called <code>Tone</code> will be added to the <code>window</code>. </p>
+<pre><code class="lang-html">&lt;script type=&quot;text/javascript&quot; src=&quot;path/to/Tone.js&quot;&gt;&lt;/script&gt;</code></pre>
+<p>To use any of the presets on instruments or effects, be sure to grab the <a href="https://raw.githubusercontent.com/TONEnoTONE/Tone.js/master/build/Tone.Preset.js">Tone.Presets build</a> which is not included in the default build. </p>
 <h3>RequireJS</h3>
 <p><a href="http://requirejs.org/">RequireJS</a> is a JavaScript module loader which Tone.js uses internally for dependency management. It is a powerful tool for development and deploying. Using r.js (RequireJS's optimizer) can bring package size down significantly since it will only include the modules used in your code. </p>
 <p>To use Tone with RequireJS, add a path to the base directory where the library is stored and then refer all Tone module dependencies starting with &quot;Tone/&quot;. </p>
+<p>To get all of the files in their directory structure, you can <code>npm install tone</code>. </p>
 <pre><code class="lang-javascript">require.config({
     baseUrl: './base',
     paths: {
-        &quot;Tone&quot; : &quot;pathto/Tone.js/Tone&quot;
+        &quot;Tone&quot; : &quot;path/to/Tone.js/Tone&quot;
     }
 });
 require([&quot;Tone/core/Transport&quot;], function(Transport){
     //...</code></pre>
-<h3>without RequireJS</h3>
-<p>Tone.js can also be used like any other script or library by dropping the <a href="https://raw.githubusercontent.com/TONEnoTONE/Tone.js/master/build/Tone.js">Tone.js Build</a> into the <head> of your page. A global called <code>Tone</code> will be added to the <code>window</code>. </p>
-<pre><code class="lang-html">&lt;script type=&quot;text/javascript&quot; src=&quot;pathto/Tone.js&quot;&gt;&lt;/script&gt;</code></pre>
-<p>To use any of the presets on instruments or effects, be sure to grab the <a href="https://raw.githubusercontent.com/TONEnoTONE/Tone.js/master/build/Tone.Preset.js">Tone.Presets build</a> which is not included in the default build. </p>
 <h1>AudioContext</h1>
 <p>Tone.js creates an AudioContext when it loads and shims it for maximum browser compatibility. The AudioContext can be found at <code>Tone.context</code> or from within any Object extending Tone as <code>this.context</code>. </p>
-<p>Tone also let's you set your own AudioContext using <code>Tone.setContext</code></p>
+<p>Tone also let's you set your own AudioContext using <code>Tone.setContext</code>.</p>
 <h1>Tone.Source</h1>
 <p>Tone.js has a number of built in audio sources:</p>
 <ul>
@@ -373,7 +378,7 @@ Tone.Transport.setTimeout(function(time){
 Tone.Transport.start();</code></pre>
 <h3>Time</h3>
 <p>In the Tone library, time can be described in a number of ways. Any method which takes a time as a parameter will accept any of these forms: </p>
-<p><strong>Number</strong>: will be taken literally as the time (in seconds). </p>
+<p><strong>Numbers</strong>: will be taken literally as the time (in seconds). </p>
 <p><strong>Notation</strong>: describes time in BPM and time signature relative values. </p>
 <ul>
 <li>&quot;4n&quot; = quarter note</li>
@@ -471,14 +476,12 @@ Tone.Transport.start();</code></pre>
 <li><a href="http://tonenotone.github.io/Tone.js/doc/Tone.PingPongDelay.html">Tone.PingPongDelay</a></li>
 </ul>
 <h1>Performance</h1>
-<p>Tone.js uses very few ScriptProcessorNodes. Nearly all of the ToneNodes find a native Web Audio component workaround, making 
-extensive use of the GainNode and WaveShaperNode especially. While the ScripProcessorNode is extremely powerful, it 
-introduces a lot of latency and the potential for glitches more than any other node.  </p>
+<p>Tone.js uses very few ScriptProcessorNodes. Nearly all of the Tone Modules find a native Web Audio component workaround, making extensive use of the GainNode and WaveShaperNode especially, which enables Tone.js to work well on both desktop and mobile browsers. While the ScripProcessorNode is extremely powerful, it introduces a lot of latency and the potential for glitches more than any other node.</p>
 <h1>Demos</h1>
 <ul>
-<li><a href="http://karenpeng.github.io/yayaya/">Camera-based synthesizer created at the Monthly Music Hackathon</a></li>
+<li><a href="http://motionemotion.herokuapp.com/">motionEmotion is an emotion &amp; gesture-based arpeggiator and synthesizer.</a></li>
 </ul>
-<p>Using Tone.js? To have your application included here email me yotammann@gmail.com</p>
+<p>Using Tone.js? To have your application included here email me: yotammann@gmail.com</p>
 <h1>References and Inspiration</h1>
 <ul>
 <li><a href="https://github.com/Dinahmoe/tuna">Tuna.js</a></li>
@@ -500,7 +503,7 @@ introduces a lot of latency and the potential for glitches more than any other n
 					
 					
 		<span class="jsdoc-message">
-		Documentation generated on Wed Sep 10 2014 22:45:41 GMT-0400 (EDT).
+		Documentation generated on Thu Sep 11 2014 20:46:13 GMT-0400 (EDT).
 		</span>
 				</footer>
 			</div>

@@ -129,6 +129,10 @@
 						</li>
 						
 						<li>
+							<a href="Tone.Master.html">Master</a>
+						</li>
+						
+						<li>
 							<a href="Tone.Max.html">Max</a>
 						</li>
 						
@@ -1296,6 +1300,8 @@
             
         
             
+        
+            
             
 <dt>
     <h4 class="name" id="set">
@@ -1930,6 +1936,8 @@
             
             
             <h4 class="subsection-title">Inherited Methods</h4>
+            
+        
             
         
             
@@ -3338,7 +3346,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Tone.js.html">core/Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-528">line 528</a>
+        <a href="Note.js.html">core/Note.js</a>, <a href="Note.js.html#sunlight-1-line-198">line 198</a>
     </li></ul></dd>
     
 
@@ -4199,6 +4207,169 @@
             
             
 <dt>
+    <h4 class="name" id="midiToNote">
+        <span class="type-signature"></span>midiToNote<span class="signature">(midiNumber)</span><span class="type-signature"> &rarr; {string}</span>
+        
+        <span class="inherited-from">
+            <a href="Tone.html#midiToNote">Tone</a>
+        </span>
+        
+    </h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>convert a midi note number into a note name</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>midiNumber</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the midi note number</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+    
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="Tone.html#midiToNote">Tone#midiToNote</a>
+    </li></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Note.js.html">core/Note.js</a>, <a href="Note.js.html#sunlight-1-line-215">line 215</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>the note's name and octave</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">string</span>
+
+
+	</dd>
+</dl>
+
+
+        
+    
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript"> tone.midiToNote(60) => "C3"
+ 
+ </pre>
+
+
+    
+</dd>
+
+            
+        
+            
+            
+<dt>
     <h4 class="name" id="noGC">
         <span class="type-signature"></span>noGC<span class="signature">()</span><span class="type-signature"></span>
         
@@ -4659,7 +4830,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Transport.js.html">core/Transport.js</a>, <a href="Transport.js.html#sunlight-1-line-750">line 750</a>
+        <a href="Transport.js.html">core/Transport.js</a>, <a href="Transport.js.html#sunlight-1-line-770">line 770</a>
     </li></ul></dd>
     
 
@@ -4810,7 +4981,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Tone.js.html">core/Tone.js</a>, <a href="Tone.js.html#sunlight-1-line-510">line 510</a>
+        <a href="Note.js.html">core/Note.js</a>, <a href="Note.js.html#sunlight-1-line-180">line 180</a>
     </li></ul></dd>
     
 
@@ -6048,7 +6219,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Transport.js.html">core/Transport.js</a>, <a href="Transport.js.html#sunlight-1-line-812">line 812</a>
+        <a href="Transport.js.html">core/Transport.js</a>, <a href="Transport.js.html#sunlight-1-line-832">line 832</a>
     </li></ul></dd>
     
 
@@ -6203,7 +6374,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Transport.js.html">core/Transport.js</a>, <a href="Transport.js.html#sunlight-1-line-850">line 850</a>
+        <a href="Transport.js.html">core/Transport.js</a>, <a href="Transport.js.html#sunlight-1-line-870">line 870</a>
     </li></ul></dd>
     
 
@@ -6491,7 +6662,7 @@
             
 <dt>
     <h4 class="name" id="toSeconds">
-        <span class="type-signature"></span>toSeconds<span class="signature">(time, <span class="optional">now</span>)</span><span class="type-signature"> &rarr; {number}</span>
+        <span class="type-signature"></span>toSeconds<span class="signature">(<span class="optional">time</span>, <span class="optional">now</span>)</span><span class="type-signature"> &rarr; {number}</span>
         
         <span class="inherited-from">
             <a href="Tone.html#toSeconds">Tone</a>
@@ -6505,7 +6676,7 @@
     
     
     <div class="description">
-        <p>convert Tone.Time to seconds</p>
+        <p>convert time to seconds</p>
 <p> this is a simplified version which only handles numbers and 
  'now' relative numbers. If the Transport is included this 
  method is overridden to include many other features including 
@@ -6551,7 +6722,7 @@
             <td class="type">
             
                 
-<span class="param-type"><a href="Tone.html#Time">Tone.Time</a></span>
+<span class="param-type">number</span>
 
 
             
@@ -6559,6 +6730,8 @@
 
             
                 <td class="attributes">
+                
+                    &lt;optional><br>
                 
 
                 
@@ -6847,7 +7020,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Transport.js.html">core/Transport.js</a>, <a href="Transport.js.html#sunlight-1-line-879">line 879</a>
+        <a href="Transport.js.html">core/Transport.js</a>, <a href="Transport.js.html#sunlight-1-line-899">line 899</a>
     </li></ul></dd>
     
 
@@ -6912,7 +7085,7 @@
 					
 					
 		<span class="jsdoc-message">
-		Documentation generated on Wed Sep 10 2014 22:45:48 GMT-0400 (EDT).
+		Documentation generated on Thu Sep 11 2014 20:46:21 GMT-0400 (EDT).
 		</span>
 				</footer>
 			</div>

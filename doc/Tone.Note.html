@@ -129,6 +129,10 @@
 						</li>
 						
 						<li>
+							<a href="Tone.Master.html">Master</a>
+						</li>
+						
+						<li>
 							<a href="Tone.Max.html">Max</a>
 						</li>
 						
@@ -589,15 +593,11 @@
     
     
     <div class="description">
-        <p>parses a score and registers all of the notes</p>
-<p> scores are a JSON object with instruments at the top level
- and an array of time, value tuples</p>
-<p> i.e. { 
-     &quot;synth&quot;  : [[&quot;0&quot;, &quot;C3&quot;], [&quot;0:1&quot;, &quot;D3&quot;], [&quot;0:2&quot;, &quot;E3&quot;], ... ],
-     &quot;bass&quot;  : [[&quot;0&quot;, &quot;C2&quot;], [&quot;1:0&quot;, &quot;A2&quot;], [&quot;2:0&quot;, &quot;C2&quot;], [&quot;3:0&quot;, &quot;A2&quot;], ... ],
-     &quot;drums&quot;  : [[&quot;0&quot;, &quot;kick&quot;], [&quot;0:2&quot;, &quot;snare&quot;], [&quot;1:0&quot;, &quot;kick&quot;], [&quot;1:2&quot;, &quot;snare&quot;], ... ],
-     ...
- }</p>
+        <p>Parses a score and registers all of the notes along the timeline. </p>
+<p> Scores are a JSON object with instruments at the top level
+ and an array of time and values. The value of a note can be 0 or more 
+ parameters. </p>
+<p> To convert MIDI files to score notation, take a look at utils/MidiToScore.js</p>
     </div>
     
 
@@ -679,7 +679,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Note.js.html">core/Note.js</a>, <a href="Note.js.html#sunlight-1-line-131">line 131</a>
+        <a href="Note.js.html">core/Note.js</a>, <a href="Note.js.html#sunlight-1-line-136">line 136</a>
     </li></ul></dd>
     
 
@@ -724,6 +724,19 @@
 
         
     
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript"> var score = { 
+ 	"synth"  : [["0", "C3"], ["0:1", "D3"], ["0:2", "E3"], ... ],
+ 	"bass"  : [["0", "C2"], ["1:0", "A2"], ["2:0", "C2"], ["3:0", "A2"], ... ],
+ 	"drums"  : [["0", "kick"], ["0:2", "snare"], ["1:0", "kick"], ["1:2", "snare"], ... ],
+ 	...
+ };
+
+ </pre>
+
+
     
 </dd>
 
@@ -1066,7 +1079,7 @@
 					
 					
 		<span class="jsdoc-message">
-		Documentation generated on Wed Sep 10 2014 22:45:54 GMT-0400 (EDT).
+		Documentation generated on Thu Sep 11 2014 20:46:28 GMT-0400 (EDT).
 		</span>
 				</footer>
 			</div>
