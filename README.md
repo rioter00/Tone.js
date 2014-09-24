@@ -70,10 +70,9 @@ osc.start();
 ### Tone.Player
 
 ```javascript
-//a buffer player which plays as soon as it's loaded
 //the second argument is an onload callback
 var player = new Tone.Player("./sound.mp3", function(){
-	player.start();	
+	//now you can use the player...
 });
 player.toMaster();
 ```
@@ -154,12 +153,15 @@ Tone.js provides a number number of useful components for building synthesizers 
 * [Tone.DryWet](http://tonenotone.github.io/Tone.js/doc/Tone.DryWet.html)
 * [Tone.Envelope](http://tonenotone.github.io/Tone.js/doc/Tone.Envelope.html)
 * [Tone.EQ](http://tonenotone.github.io/Tone.js/doc/Tone.EQ.html)
+* [Tone.FeedbackCombFilter](http://tonenotone.github.io/Tone.js/doc/Tone.FeedbackCombFilter.html)
 * [Tone.Filter](http://tonenotone.github.io/Tone.js/doc/Tone.Filter.html)
 * [Tone.Follower](http://tonenotone.github.io/Tone.js/doc/Tone.Follower.html)
 * [Tone.Gate](http://tonenotone.github.io/Tone.js/doc/Tone.Gate.html)
 * [Tone.LFO](http://tonenotone.github.io/Tone.js/doc/Tone.LFO.html)
+* [Tone.LowpassCombFiler](http://tonenotone.github.io/Tone.js/doc/Tone.LowpassCombFiler.html)
 * [Tone.Merge](http://tonenotone.github.io/Tone.js/doc/Tone.Merge.html)
 * [Tone.Meter](http://tonenotone.github.io/Tone.js/doc/Tone.Meter.html)
+* [Tone.Mono](http://tonenotone.github.io/Tone.js/doc/Tone.Mono.html)
 * [Tone.Panner](http://tonenotone.github.io/Tone.js/doc/Tone.Panner.html)
 * [Tone.Split](http://tonenotone.github.io/Tone.js/doc/Tone.Split.html)
 
@@ -189,6 +191,7 @@ Audio-rate logic operator output 1 when true and 0 when false.
 * [Tone.EqualZero](http://tonenotone.github.io/Tone.js/doc/Tone.EqualZero.html)
 * [Tone.GreaterThan](http://tonenotone.github.io/Tone.js/doc/Tone.GreaterThan.html)
 * [Tone.LessThan](http://tonenotone.github.io/Tone.js/doc/Tone.LessThan.html)
+* [Tone.Not](http://tonenotone.github.io/Tone.js/doc/Tone.Not.html)
 * [Tone.Threshold](http://tonenotone.github.io/Tone.js/doc/Tone.Threshold.html)
 
 ### Routing
@@ -206,6 +209,8 @@ Tone.js has a few built in synthesizers.
 * [Tone.MonoSynth](http://tonenotone.github.io/Tone.js/doc/Tone.MonoSynth.html)
 * [Tone.DuoSynth](http://tonenotone.github.io/Tone.js/doc/Tone.DuoSynth.html)
 * [Tone.FMSynth](http://tonenotone.github.io/Tone.js/doc/Tone.FMSynth.html)
+* [Tone.PluckSynth](http://tonenotone.github.io/Tone.js/doc/Tone.PluckSynth.html)
+* [Tone.Sampler](http://tonenotone.github.io/Tone.js/doc/Tone.Sampler.html)
 
 Each of these synthesizers can be fed to the second argument of [Tone.PolySynth](http://tonenotone.github.io/Tone.js/doc/Tone.PolySynth.html) to turn the monophonic voice into a polyphonic synthesizer. 
 
@@ -231,9 +236,11 @@ Tone.js uses very few ScriptProcessorNodes. Nearly all of the Tone Modules find 
 
 # Demos
 
-* [motionEmotion is an emotion & gesture-based arpeggiator and synthesizer.](http://motionemotion.herokuapp.com/)
+* [motionEmotion - emotion & gesture-based arpeggiator and synthesizer](http://motionemotion.herokuapp.com/)
+* [A Tone.js Plugin Architecture with GUIs](https://github.com/billautomata/Tone.js.Plugins)
+* [Hypercube by @eddietree](http://eddietree.github.io/hypercube/)
 
-Using Tone.js? To have your application included here email me: yotammann@gmail.com
+Using Tone.js? I'd love to hear it: yotammann@gmail.com
 
 # References and Inspiration
 
