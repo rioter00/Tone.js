@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Tone.js Source: component/FeedbackCombFilter.js</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	
+	<link type="text/css" rel="stylesheet" href="styles/site.spacelab.css">
+	
+</head>
+
+<body>
+<div class="container-fluid">
+	<div class="navbar navbar-fixed-top navbar-inverse">
+		<div class="navbar-inner">
+			<a class="brand" href="index.html">Tone.js</a>
+			<ul class="nav">
+				
+				<li class="dropdown">
+					<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b
+						class="caret"></b></a>
+
+					<ul class="dropdown-menu ">
+						
+						<li>
+							<a href="Tone.html">Tone</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Abs.html">Abs</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Add.html">Add</a>
+						</li>
+						
+						<li>
+							<a href="Tone.AmplitudeEnvelope.html">AmplitudeEnvelope</a>
+						</li>
+						
+						<li>
+							<a href="Tone.AutoPanner.html">AutoPanner</a>
+						</li>
+						
+						<li>
+							<a href="Tone.AutoWah.html">AutoWah</a>
+						</li>
+						
+						<li>
+							<a href="Tone.BitCrusher.html">BitCrusher</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Chorus.html">Chorus</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Clip.html">Clip</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Clock.html">Clock</a>
+						</li>
+						
+						<li>
+							<a href="Tone.DryWet.html">DryWet</a>
+						</li>
+						
+						<li>
+							<a href="Tone.DuoSynth.html">DuoSynth</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Effect.html">Effect</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Envelope.html">Envelope</a>
+						</li>
+						
+						<li>
+							<a href="Tone.EQ.html">EQ</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Equal.html">Equal</a>
+						</li>
+						
+						<li>
+							<a href="Tone.EqualZero.html">EqualZero</a>
+						</li>
+						
+						<li>
+							<a href="Tone.FeedbackCombFilter.html">FeedbackCombFilter</a>
+						</li>
+						
+						<li>
+							<a href="Tone.FeedbackDelay.html">FeedbackDelay</a>
+						</li>
+						
+						<li>
+							<a href="Tone.FeedbackEffect.html">FeedbackEffect</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Filter.html">Filter</a>
+						</li>
+						
+						<li>
+							<a href="Tone.FMSynth.html">FMSynth</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Follower.html">Follower</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Freeverb.html">Freeverb</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Gate.html">Gate</a>
+						</li>
+						
+						<li>
+							<a href="Tone.GreaterThan.html">GreaterThan</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Instrument.html">Instrument</a>
+						</li>
+						
+						<li>
+							<a href="Tone.JCReverb.html">JCReverb</a>
+						</li>
+						
+						<li>
+							<a href="Tone.LessThan.html">LessThan</a>
+						</li>
+						
+						<li>
+							<a href="Tone.LFO.html">LFO</a>
+						</li>
+						
+						<li>
+							<a href="Tone.LowpassCombFilter.html">LowpassCombFilter</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Master.html">Master</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Max.html">Max</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Merge.html">Merge</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Meter.html">Meter</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Microphone.html">Microphone</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Min.html">Min</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Modulo.html">Modulo</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Mono.html">Mono</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Monophonic.html">Monophonic</a>
+						</li>
+						
+						<li>
+							<a href="Tone.MonoSynth.html">MonoSynth</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Multiply.html">Multiply</a>
+						</li>
+						
+						<li>
+							<a href="Tone.MultiSampler.html">MultiSampler</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Negate.html">Negate</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Noise.html">Noise</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Note.html">Note</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Oscillator.html">Oscillator</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Panner.html">Panner</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Phaser.html">Phaser</a>
+						</li>
+						
+						<li>
+							<a href="Tone.PingPongDelay.html">PingPongDelay</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Player.html">Player</a>
+						</li>
+						
+						<li>
+							<a href="Tone.PluckSynth.html">PluckSynth</a>
+						</li>
+						
+						<li>
+							<a href="Tone.PolySynth.html">PolySynth</a>
+						</li>
+						
+						<li>
+							<a href="Tone.PulseOscillator.html">PulseOscillator</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Recorder.html">Recorder</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Route.html">Route</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Sampler.html">Sampler</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Scale.html">Scale</a>
+						</li>
+						
+						<li>
+							<a href="Tone.ScaleExp.html">ScaleExp</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Select.html">Select</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Signal.html">Signal</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Source.html">Source</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Split.html">Split</a>
+						</li>
+						
+						<li>
+							<a href="Tone.StereoEffect.html">StereoEffect</a>
+						</li>
+						
+						<li>
+							<a href="Tone.StereoFeedbackEffect.html">StereoFeedbackEffect</a>
+						</li>
+						
+						<li>
+							<a href="Tone.StereoXFeedbackEffect.html">StereoXFeedbackEffect</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Switch.html">Switch</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Threshold.html">Threshold</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Transport.html">Transport</a>
+						</li>
+						
+
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+	</div>
+
+	<div class="row-fluid">
+
+		
+			<div class="span12">
+				
+				<div id="main">
+					
+
+
+		<h1 class="page-title">Source: component/FeedbackCombFilter.js</h1>
+    
+    <section>
+        <article>
+            <pre class="sunlight-highlight-javascript linenums">define(["Tone/core/Tone", "Tone/signal/ScaleExp", "Tone/signal/Signal"], function(Tone){
+
+	"use strict";
+
+	/**
+	 *  @class A comb filter with feedback
+	 *
+	 *  @extends {Tone}
+	 *  @constructor
+	 *  @param {number} [minDelay=0.1] the minimum delay time which the filter can have
+	 */
+	Tone.FeedbackCombFilter = function(minDelay){
+
+		Tone.call(this);
+
+		minDelay = this.defaultArg(minDelay, 0.01);
+		//the delay * samplerate = number of samples. 
+		// buffersize / number of samples = number of delays needed per buffer frame
+		var delayCount = Math.ceil(this.bufferSize / (minDelay * this.context.sampleRate));
+		//set some ranges
+		delayCount = Math.min(delayCount, 10);
+		delayCount = Math.max(delayCount, 1);
+
+		/**
+		 *  the number of filter delays
+		 *  @type {number}
+		 *  @private
+		 */
+		this._delayCount = delayCount;
+
+		/**
+		 *  @type {Array.&lt;FilterDelay>}
+		 *  @private
+		 */
+		this._delays = new Array(this._delayCount);
+
+		/**
+		 *  the delayTime control
+		 *  @type {Tone.Signal}
+		 *  @private
+		 */
+		this._delayTime = new Tone.Signal(1);
+
+		/**
+		 *  the resonance control
+		 *  @type {Tone.Signal}
+		 */
+		this.resonance = new Tone.Signal(0.5);
+
+		/**
+		 *  scale the resonance value to the normal range
+		 *  @type {Tone.Scale}
+		 *  @private
+		 */
+		this._resScale = new Tone.ScaleExp(0, 1, 0.01, 1 / this._delayCount - 0.001, 0.5);
+
+		/**
+		 *  internal flag for keeping track of when frequency
+		 *  correction has been used
+		 *  @type {boolean}
+		 *  @private
+		 */
+		this._highFrequencies = false;
+
+		/**
+		 *  the feedback node
+		 *  @type {GainNode}
+		 *  @private
+		 */
+		this._feedback = this.context.createGain();
+
+		//make the filters
+		for (var i = 0; i &lt; this._delayCount; i++) {
+			var delay = this.context.createDelay();
+			delay.connect(this._feedback);
+			this._delayTime.connect(delay.delayTime);
+			this._delays[i] = delay;
+		}
+
+		//connections
+		this.input.connect(this._delays[0]);
+		this._feedback.connect(this._delays[0]);
+		this.chain.apply(this, this._delays);
+		//resonance control
+		this.chain(this.resonance, this._resScale, this._feedback.gain);
+		this._feedback.connect(this.output);
+		//set the delay to the min value initially
+		this.setDelayTime(minDelay);
+	};
+
+	Tone.extend(Tone.FeedbackCombFilter);
+
+	/**
+	 *  set the delay time of the comb filter
+	 *  auto corrects for sample offsets for small delay amounts
+	 *  	
+	 *  @param {number} delayAmount the delay amount
+	 *  @param {Tone.Time=} time        when the change should occur
+	 */
+	Tone.FeedbackCombFilter.prototype.setDelayTime = function(delayAmount, time) {
+		time = this.toSeconds(time);
+		//the number of samples to delay by
+		var sampleRate = this.context.sampleRate;
+		var delaySamples = sampleRate * delayAmount;
+		// delayTime corection when frequencies get high
+		time = this.toSeconds(time);
+		var cutoff = 100;
+		if (delaySamples &lt; cutoff){
+			this._highFrequencies = true;
+			var changeNumber = Math.round((delaySamples / cutoff) * this._delayCount);
+			for (var i = 0; i &lt; changeNumber; i++) {
+				this._delays[i].delayTime.setValueAtTime(1 / sampleRate, time);
+			}
+			delayAmount = Math.floor(delaySamples) / sampleRate;
+		} else if (this._highFrequencies){
+			this._highFrequencies = false;
+			for (var j = 0; j &lt; this._delays.length; j++) {
+				this._delays[j].delayTime.setValueAtTime(0, time);
+			}
+		}
+		this._delayTime.setValueAtTime(delayAmount, time);
+	};
+
+	/**
+	 *  clean up
+	 */
+	Tone.FeedbackCombFilter.prototype.dispose = function(){
+		Tone.prototype.dispose.call(this);
+		//dispose the filter delays
+		for (var i = 0; i &lt; this._delays.length; i++) {
+			this._delays[i].disconnect();
+			this._delays[i] = null;
+		}
+		this._delayTime.dispose();
+		this.resonance.dispose();
+		this._resScale.dispose();
+		this._feedback.disconnect();
+		this._delays = null;
+		this.resonance = null;
+		this._resScale = null;
+		this._feedback = null;
+		this._delayTime = null;
+	};
+
+	return Tone.FeedbackCombFilter;
+});</pre>
+        </article>
+    </section>
+
+
+
+
+
+				</div>
+
+				<div class="clearfix"></div>
+				<footer>
+					
+					
+		<span class="jsdoc-message">
+		Documentation generated on Tue Sep 23 2014 22:16:00 GMT-0400 (EDT).
+		</span>
+				</footer>
+			</div>
+
+			
+			<br clear="both">
+		</div>
+
+	</div>
+	<script src="scripts/sunlight.js"></script>
+	<script src="scripts/sunlight.javascript.js"></script>
+	<script src="scripts/sunlight-plugin.doclinks.js"></script>
+	<script src="scripts/sunlight-plugin.linenumbers.js"></script>
+	<script src="scripts/sunlight-plugin.menu.js"></script>
+	<script src="scripts/jquery.min.js"></script>
+	<script src="scripts/jquery.scrollTo.js"></script>
+	<script src="scripts/jquery.localScroll.js"></script>
+	<script src="scripts/bootstrap-dropdown.js"></script>
+	<script src="scripts/toc.js"></script>
+
+
+	<script>  Sunlight.highlightAll({lineNumbers:true,  showMenu: true, enableDoclinks :true}); </script>
+
+	<script>
+		$( function () {
+			$( "#toc" ).toc( {
+				selectors   : "h1,h2,h3,h4",
+				showAndHide : false,
+				scrollTo    : 60
+			} );
+			$( "#toc>ul" ).addClass( "nav nav-pills nav-stacked" );
+			$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+
+		} );
+	</script>
+
+	
+	<script>
+		$( function () {
+			$('#main').localScroll({
+				offset: { top: 56 } //offset by the height of your header (give or take a few px, see what works for you)
+			});
+			$( "dt h4.name" ).each( function () {
+				var $this = $( this );
+				var icon = $( "<i/>" ).addClass( "icon-plus-sign" ).addClass( "pull-right" ).addClass( "icon-white" );
+				var dt = $this.parents( "dt" );
+				var children = dt.next( "dd" );
+
+				$this.append( icon ).css( {cursor : "pointer"} );
+				$this.addClass( "member-collapsed" ).addClass( "member" );
+
+				children.hide();
+				$this.toggle( function () {
+					icon.addClass( "icon-minus-sign" ).removeClass( "icon-plus-sign" ).removeClass( "icon-white" );
+					$this.addClass( "member-open" ).removeClass( "member-collapsed" );
+					children.slideDown();
+				}, function () {
+					icon.addClass( "icon-plus-sign" ).removeClass( "icon-minus-sign" ).addClass( "icon-white" );
+					$this.addClass( "member-collapsed" ).removeClass( "member-open" );
+					children.slideUp();
+				} );
+			} );
+		} );
+	</script>
+	
+
+</body>
+</html>

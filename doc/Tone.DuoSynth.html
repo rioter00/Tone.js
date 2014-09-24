@@ -41,6 +41,10 @@
 						</li>
 						
 						<li>
+							<a href="Tone.AmplitudeEnvelope.html">AmplitudeEnvelope</a>
+						</li>
+						
+						<li>
 							<a href="Tone.AutoPanner.html">AutoPanner</a>
 						</li>
 						
@@ -93,6 +97,10 @@
 						</li>
 						
 						<li>
+							<a href="Tone.FeedbackCombFilter.html">FeedbackCombFilter</a>
+						</li>
+						
+						<li>
 							<a href="Tone.FeedbackDelay.html">FeedbackDelay</a>
 						</li>
 						
@@ -113,6 +121,10 @@
 						</li>
 						
 						<li>
+							<a href="Tone.Freeverb.html">Freeverb</a>
+						</li>
+						
+						<li>
 							<a href="Tone.Gate.html">Gate</a>
 						</li>
 						
@@ -121,11 +133,23 @@
 						</li>
 						
 						<li>
+							<a href="Tone.Instrument.html">Instrument</a>
+						</li>
+						
+						<li>
+							<a href="Tone.JCReverb.html">JCReverb</a>
+						</li>
+						
+						<li>
 							<a href="Tone.LessThan.html">LessThan</a>
 						</li>
 						
 						<li>
 							<a href="Tone.LFO.html">LFO</a>
+						</li>
+						
+						<li>
+							<a href="Tone.LowpassCombFilter.html">LowpassCombFilter</a>
 						</li>
 						
 						<li>
@@ -154,6 +178,10 @@
 						
 						<li>
 							<a href="Tone.Modulo.html">Modulo</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Mono.html">Mono</a>
 						</li>
 						
 						<li>
@@ -202,6 +230,10 @@
 						
 						<li>
 							<a href="Tone.Player.html">Player</a>
+						</li>
+						
+						<li>
+							<a href="Tone.PluckSynth.html">PluckSynth</a>
 						</li>
 						
 						<li>
@@ -721,7 +753,7 @@
 <dd>
     
     <div class="description">
-        <p>the instrument's output</p>
+        <p>the output</p>
     </div>
     
     
@@ -748,7 +780,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="dummy"><li>
-        <a href="Tone.Monophonic.html#output">Tone.Monophonic#output</a>
+        <a href="Tone.Instrument.html#output">Tone.Instrument#output</a>
     </li></dd>
     
 
@@ -765,7 +797,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Monophonic.js.html">instrument/Monophonic.js</a>, <a href="Monophonic.js.html#sunlight-1-line-22">line 22</a>
+        <a href="Instrument.js.html">instrument/Instrument.js</a>, <a href="Instrument.js.html#sunlight-1-line-17">line 17</a>
     </li></ul></dd>
     
 
@@ -834,7 +866,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Monophonic.js.html">instrument/Monophonic.js</a>, <a href="Monophonic.js.html#sunlight-1-line-28">line 28</a>
+        <a href="Monophonic.js.html">instrument/Monophonic.js</a>, <a href="Monophonic.js.html#sunlight-1-line-24">line 24</a>
     </li></ul></dd>
     
 
@@ -1067,6 +1099,10 @@
     
 </dd>
 
+            
+        
+            
+        
             
         
             
@@ -2273,6 +2309,10 @@
             
             
             <h4 class="subsection-title">Inherited Methods</h4>
+            
+        
+            
+        
             
         
             
@@ -3699,7 +3739,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Note.js.html">core/Note.js</a>, <a href="Note.js.html#sunlight-1-line-198">line 198</a>
+        <a href="Note.js.html">core/Note.js</a>, <a href="Note.js.html#sunlight-1-line-202">line 202</a>
     </li></ul></dd>
     
 
@@ -4252,6 +4292,170 @@
             
             
 <dt>
+    <h4 class="name" id="intervalToFrequencyRatio">
+        <span class="type-signature"></span>intervalToFrequencyRatio<span class="signature">(interval)</span><span class="type-signature"> &rarr; {number}</span>
+        
+        <span class="inherited-from">
+            <a href="Tone.html#intervalToFrequencyRatio">Tone</a>
+        </span>
+        
+    </h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>convert an interval (in semitones) to a frequency ratio</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>interval</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the number of semitones above the base note</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+    
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="Tone.html#intervalToFrequencyRatio">Tone#intervalToFrequencyRatio</a>
+    </li></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Note.js.html">core/Note.js</a>, <a href="Note.js.html#sunlight-1-line-220">line 220</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>the frequency ratio</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">number</span>
+
+
+	</dd>
+</dl>
+
+
+        
+    
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript"> tone.intervalToFrequencyRatio(0); // returns 1
+ tone.intervalToFrequencyRatio(12); // returns 2
+ 
+ </pre>
+
+
+    
+</dd>
+
+            
+        
+            
+            
+<dt>
     <h4 class="name" id="isUndef">
         <span class="type-signature"></span>isUndef<span class="signature">(arg)</span><span class="type-signature"> &rarr; {boolean}</span>
         
@@ -4660,7 +4864,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Note.js.html">core/Note.js</a>, <a href="Note.js.html#sunlight-1-line-215">line 215</a>
+        <a href="Note.js.html">core/Note.js</a>, <a href="Note.js.html#sunlight-1-line-233">line 233</a>
     </li></ul></dd>
     
 
@@ -4708,7 +4912,7 @@
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript"> tone.midiToNote(60) => "C3"
+    <pre class="sunlight-highlight-javascript"> tone.midiToNote(60); // returns "C3"
  
  </pre>
 
@@ -5181,7 +5385,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Transport.js.html">core/Transport.js</a>, <a href="Transport.js.html#sunlight-1-line-770">line 770</a>
+        <a href="Transport.js.html">core/Transport.js</a>, <a href="Transport.js.html#sunlight-1-line-782">line 782</a>
     </li></ul></dd>
     
 
@@ -5332,7 +5536,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Note.js.html">core/Note.js</a>, <a href="Note.js.html#sunlight-1-line-180">line 180</a>
+        <a href="Note.js.html">core/Note.js</a>, <a href="Note.js.html#sunlight-1-line-184">line 184</a>
     </li></ul></dd>
     
 
@@ -5373,6 +5577,169 @@
 
         
     
+    
+</dd>
+
+            
+        
+            
+            
+<dt>
+    <h4 class="name" id="noteToMidi">
+        <span class="type-signature"></span>noteToMidi<span class="signature">(note)</span><span class="type-signature"> &rarr; {number}</span>
+        
+        <span class="inherited-from">
+            <a href="Tone.html#noteToMidi">Tone</a>
+        </span>
+        
+    </h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>convert a note to it's midi value</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>note</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the note name (i.e. &quot;C3&quot;)</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+    
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="Tone.html#noteToMidi">Tone#noteToMidi</a>
+    </li></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Note.js.html">core/Note.js</a>, <a href="Note.js.html#sunlight-1-line-248">line 248</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>the midi value of that note</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">number</span>
+
+
+	</dd>
+</dl>
+
+
+        
+    
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript"> tone.noteToMidi("C3"); // returns 60
+ 
+ </pre>
+
+
     
 </dd>
 
@@ -6493,7 +6860,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Monophonic.js.html">instrument/Monophonic.js</a>, <a href="Monophonic.js.html#sunlight-1-line-99">line 99</a>
+        <a href="Monophonic.js.html">instrument/Monophonic.js</a>, <a href="Monophonic.js.html#sunlight-1-line-81">line 81</a>
     </li></ul></dd>
     
 
@@ -6627,7 +6994,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Monophonic.js.html">instrument/Monophonic.js</a>, <a href="Monophonic.js.html#sunlight-1-line-140">line 140</a>
+        <a href="Monophonic.js.html">instrument/Monophonic.js</a>, <a href="Monophonic.js.html#sunlight-1-line-116">line 116</a>
     </li></ul></dd>
     
 
@@ -6666,7 +7033,7 @@
             
 <dt>
     <h4 class="name" id="ticksToSeconds">
-        <span class="type-signature"></span>ticksToSeconds<span class="signature">(transportTime, <span class="optional">bpm</span>, <span class="optional">timeSignature</span>)</span><span class="type-signature"> &rarr; {number}</span>
+        <span class="type-signature"></span>ticksToSeconds<span class="signature">(ticks, <span class="optional">bpm</span>, <span class="optional">timeSignature</span>)</span><span class="type-signature"> &rarr; {number}</span>
         
         <span class="inherited-from">
             <a href="Tone.html#ticksToSeconds">Tone</a>
@@ -6716,13 +7083,13 @@
 
         <tr>
             
-                <td class="name"><code>transportTime</code></td>
+                <td class="name"><code>ticks</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">number</span>
 
 
             
@@ -6843,7 +7210,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Transport.js.html">core/Transport.js</a>, <a href="Transport.js.html#sunlight-1-line-832">line 832</a>
+        <a href="Transport.js.html">core/Transport.js</a>, <a href="Transport.js.html#sunlight-1-line-844">line 844</a>
     </li></ul></dd>
     
 
@@ -6998,7 +7365,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Transport.js.html">core/Transport.js</a>, <a href="Transport.js.html#sunlight-1-line-870">line 870</a>
+        <a href="Transport.js.html">core/Transport.js</a>, <a href="Transport.js.html#sunlight-1-line-882">line 882</a>
     </li></ul></dd>
     
 
@@ -7644,7 +8011,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Transport.js.html">core/Transport.js</a>, <a href="Transport.js.html#sunlight-1-line-899">line 899</a>
+        <a href="Transport.js.html">core/Transport.js</a>, <a href="Transport.js.html#sunlight-1-line-911">line 911</a>
     </li></ul></dd>
     
 
@@ -7892,7 +8259,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Monophonic.js.html">instrument/Monophonic.js</a>, <a href="Monophonic.js.html#sunlight-1-line-49">line 49</a>
+        <a href="Monophonic.js.html">instrument/Monophonic.js</a>, <a href="Monophonic.js.html#sunlight-1-line-45">line 45</a>
     </li></ul></dd>
     
 
@@ -7923,10 +8290,10 @@
             
 <dt>
     <h4 class="name" id="triggerAttackRelease">
-        <span class="type-signature"></span>triggerAttackRelease<span class="signature">(note, duration, <span class="optional">time</span>, <span class="optional">velocity</span>)</span><span class="type-signature"></span>
+        <span class="type-signature"></span>triggerAttackRelease<span class="signature">(note, <span class="optional">duration</span>, <span class="optional">time</span>, velocity)</span><span class="type-signature"></span>
         
         <span class="inherited-from">
-            <a href="Tone.Monophonic.html#triggerAttackRelease">Tone.Monophonic</a>
+            <a href="Tone.Instrument.html#triggerAttackRelease">Tone.Instrument</a>
         </span>
         
     </h4>
@@ -7937,7 +8304,7 @@
     
     
     <div class="description">
-        <p>trigger the attack and release after the specified duration</p>
+        <p>trigger the attack and then the release</p>
     </div>
     
 
@@ -7979,10 +8346,10 @@
             <td class="type">
             
                 
-<span class="param-type">number</span>
+<span class="param-type">string</span>
 |
 
-<span class="param-type">string</span>
+<span class="param-type">number</span>
 
 
             
@@ -8000,7 +8367,7 @@
 
             
 
-            <td class="description last"><p>the note as a number or a string note name</p></td>
+            <td class="description last"><p>the note to trigger</p></td>
         </tr>
 
 	
@@ -8021,6 +8388,8 @@
 
             
                 <td class="attributes">
+                
+                    &lt;optional><br>
                 
 
                 
@@ -8064,7 +8433,7 @@
 
             
 
-            <td class="description last"><p>if no time is given, defaults to now</p></td>
+            <td class="description last"><p>the time of the attack</p></td>
         </tr>
 
 	
@@ -8086,8 +8455,6 @@
             
                 <td class="attributes">
                 
-                    &lt;optional><br>
-                
 
                 
 
@@ -8097,7 +8464,7 @@
 
             
 
-            <td class="description last"><p>the velocity of the attack (0-1)</p></td>
+            <td class="description last"><p>the velocity</p></td>
         </tr>
 
 	
@@ -8117,7 +8484,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="dummy"><li>
-        <a href="Tone.Monophonic.html#triggerAttackRelease">Tone.Monophonic#triggerAttackRelease</a>
+        <a href="Tone.Instrument.html#triggerAttackRelease">Tone.Instrument#triggerAttackRelease</a>
     </li></dd>
     
 
@@ -8134,7 +8501,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Monophonic.js.html">instrument/Monophonic.js</a>, <a href="Monophonic.js.html#sunlight-1-line-63">line 63</a>
+        <a href="Instrument.js.html">instrument/Instrument.js</a>, <a href="Instrument.js.html#sunlight-1-line-43">line 43</a>
     </li></ul></dd>
     
 
@@ -8290,7 +8657,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Monophonic.js.html">instrument/Monophonic.js</a>, <a href="Monophonic.js.html#sunlight-1-line-73">line 73</a>
+        <a href="Monophonic.js.html">instrument/Monophonic.js</a>, <a href="Monophonic.js.html#sunlight-1-line-55">line 55</a>
     </li></ul></dd>
     
 
@@ -8336,7 +8703,7 @@
 					
 					
 		<span class="jsdoc-message">
-		Documentation generated on Thu Sep 11 2014 20:46:18 GMT-0400 (EDT).
+		Documentation generated on Tue Sep 23 2014 22:16:07 GMT-0400 (EDT).
 		</span>
 				</footer>
 			</div>

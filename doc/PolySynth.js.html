@@ -41,6 +41,10 @@
 						</li>
 						
 						<li>
+							<a href="Tone.AmplitudeEnvelope.html">AmplitudeEnvelope</a>
+						</li>
+						
+						<li>
 							<a href="Tone.AutoPanner.html">AutoPanner</a>
 						</li>
 						
@@ -93,6 +97,10 @@
 						</li>
 						
 						<li>
+							<a href="Tone.FeedbackCombFilter.html">FeedbackCombFilter</a>
+						</li>
+						
+						<li>
 							<a href="Tone.FeedbackDelay.html">FeedbackDelay</a>
 						</li>
 						
@@ -113,6 +121,10 @@
 						</li>
 						
 						<li>
+							<a href="Tone.Freeverb.html">Freeverb</a>
+						</li>
+						
+						<li>
 							<a href="Tone.Gate.html">Gate</a>
 						</li>
 						
@@ -121,11 +133,23 @@
 						</li>
 						
 						<li>
+							<a href="Tone.Instrument.html">Instrument</a>
+						</li>
+						
+						<li>
+							<a href="Tone.JCReverb.html">JCReverb</a>
+						</li>
+						
+						<li>
 							<a href="Tone.LessThan.html">LessThan</a>
 						</li>
 						
 						<li>
 							<a href="Tone.LFO.html">LFO</a>
+						</li>
+						
+						<li>
+							<a href="Tone.LowpassCombFilter.html">LowpassCombFilter</a>
 						</li>
 						
 						<li>
@@ -154,6 +178,10 @@
 						
 						<li>
 							<a href="Tone.Modulo.html">Modulo</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Mono.html">Mono</a>
 						</li>
 						
 						<li>
@@ -202,6 +230,10 @@
 						
 						<li>
 							<a href="Tone.Player.html">Player</a>
+						</li>
+						
+						<li>
+							<a href="Tone.PluckSynth.html">PluckSynth</a>
 						</li>
 						
 						<li>
@@ -309,21 +341,17 @@ function(Tone){
 	 *  synth.setPreset("Pianoetta");
 	 *
 	 *  @constructor
-	 *  @extends {Tone}
-	 *  @param {number|Object=} [polyphony=4] the number of voices to create
-	 *  @param {function=} [voice=Tone.MonoSynth] the constructor of the voices
+	 *  @extends {Tone.Instrument}
+	 *  @param {number|Object} [polyphony=4] the number of voices to create
+	 *  @param {function} [voice=Tone.MonoSynth] the constructor of the voices
 	 *                                            uses Tone.MonoSynth by default
-	 *  @param {Object=} voiceOptions the options to pass to the voice                                          
+	 *  @param {Object} voiceOptions the options to pass to the voice                                          
 	 */
 	Tone.PolySynth = function(){
 
-		var options = this.optionsObject(arguments, ["polyphony", "voice", "voiceOptions"], Tone.PolySynth.defaults);
+		Tone.Instrument.call(this);
 
-		/**
-		 *  the output
-		 *  @type {GainNode}
-		 */
-		this.output = this.context.createGain();
+		var options = this.optionsObject(arguments, ["polyphony", "voice", "voiceOptions"], Tone.PolySynth.defaults);
 
 		/**
 		 *  the array of voices
@@ -357,7 +385,7 @@ function(Tone){
 		this._freeVoices = this._voices.slice(0);
 	};
 
-	Tone.extend(Tone.PolySynth);
+	Tone.extend(Tone.PolySynth, Tone.Instrument);
 
 	/**
 	 *  the defaults
@@ -440,16 +468,10 @@ function(Tone){
 	};
 
 	/**
-	 *  set volume method borrowed form {@link Tone.Source}
-	 *  @function
-	 */
-	Tone.PolySynth.prototype.setVolume = Tone.Source.prototype.setVolume;
-
-	/**
 	 *  clean up
 	 */
 	Tone.PolySynth.prototype.dispose = function(){
-		Tone.prototype.dispose.call(this);
+		Tone.Instrument.prototype.dispose.call(this);
 		for (var i = 0; i &lt; this._voices.length; i++){
 			this._voices[i].dispose();
 			this._voices[i] = null;
@@ -475,7 +497,7 @@ function(Tone){
 					
 					
 		<span class="jsdoc-message">
-		Documentation generated on Thu Sep 11 2014 20:46:12 GMT-0400 (EDT).
+		Documentation generated on Tue Sep 23 2014 22:16:01 GMT-0400 (EDT).
 		</span>
 				</footer>
 			</div>

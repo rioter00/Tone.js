@@ -41,6 +41,10 @@
 						</li>
 						
 						<li>
+							<a href="Tone.AmplitudeEnvelope.html">AmplitudeEnvelope</a>
+						</li>
+						
+						<li>
 							<a href="Tone.AutoPanner.html">AutoPanner</a>
 						</li>
 						
@@ -93,6 +97,10 @@
 						</li>
 						
 						<li>
+							<a href="Tone.FeedbackCombFilter.html">FeedbackCombFilter</a>
+						</li>
+						
+						<li>
 							<a href="Tone.FeedbackDelay.html">FeedbackDelay</a>
 						</li>
 						
@@ -113,6 +121,10 @@
 						</li>
 						
 						<li>
+							<a href="Tone.Freeverb.html">Freeverb</a>
+						</li>
+						
+						<li>
 							<a href="Tone.Gate.html">Gate</a>
 						</li>
 						
@@ -121,11 +133,23 @@
 						</li>
 						
 						<li>
+							<a href="Tone.Instrument.html">Instrument</a>
+						</li>
+						
+						<li>
+							<a href="Tone.JCReverb.html">JCReverb</a>
+						</li>
+						
+						<li>
 							<a href="Tone.LessThan.html">LessThan</a>
 						</li>
 						
 						<li>
 							<a href="Tone.LFO.html">LFO</a>
+						</li>
+						
+						<li>
+							<a href="Tone.LowpassCombFilter.html">LowpassCombFilter</a>
 						</li>
 						
 						<li>
@@ -154,6 +178,10 @@
 						
 						<li>
 							<a href="Tone.Modulo.html">Modulo</a>
+						</li>
+						
+						<li>
+							<a href="Tone.Mono.html">Mono</a>
 						</li>
 						
 						<li>
@@ -202,6 +230,10 @@
 						
 						<li>
 							<a href="Tone.Player.html">Player</a>
+						</li>
+						
+						<li>
+							<a href="Tone.PluckSynth.html">PluckSynth</a>
 						</li>
 						
 						<li>
@@ -293,7 +325,7 @@
     
     <section>
         <article>
-            <pre class="sunlight-highlight-javascript linenums">define(["Tone/core/Tone", "Tone/effect/Effect", "Tone/component/Split", "Tone/component/Merge"], 
+            <pre class="sunlight-highlight-javascript linenums">define(["Tone/core/Tone", "Tone/effect/Effect", "Tone/component/Split", "Tone/component/Merge", "Tone/component/Mono"], 
 function(Tone){
 
 	"use strict";
@@ -319,10 +351,10 @@ function(Tone){
 
 		/**
 		 *  make the incoming signal mono
-		 *  @type {Tone.Merge}
+		 *  @type {Tone.Mono}
 		 *  @private
 		 */
-		this._mono = new Tone.Merge();
+		this._mono = new Tone.Mono();
 
 		/**
 		 *  then split it
@@ -363,8 +395,7 @@ function(Tone){
 		this.effectReturnR = this._merge.right;
 
 		//connections
-		this.input.connect(this._mono, 0, 0);
-		this.input.connect(this._mono, 0, 1);
+		this.input.connect(this._mono);
 		this._mono.connect(this._split);
 		//dry wet connections
 		this._mono.connect(this.dryWet.dry);
@@ -411,7 +442,7 @@ function(Tone){
 					
 					
 		<span class="jsdoc-message">
-		Documentation generated on Thu Sep 11 2014 20:46:12 GMT-0400 (EDT).
+		Documentation generated on Tue Sep 23 2014 22:16:01 GMT-0400 (EDT).
 		</span>
 				</footer>
 			</div>
